@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Urbanist:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply scroll-smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-obigold-black text-obigold-white font-body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading uppercase tracking-wide;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-glow {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-card {
+  @apply bg-obigold-dark border border-obigold-grey rounded-lg p-6 transition-all duration-300 hover:border-obigold-gold;
+}
+
+.section-heading {
+  @apply text-center mb-16;
+}
+
+.section-title {
+  @apply text-h2 text-obigold-white mb-4 relative;
+}
+
+.section-title-accent {
+  @apply text-obigold-gold;
+}
