@@ -1,15 +1,17 @@
-# Multi-Step Booking Modal + Hero Theme Alignment
+# Exact indexpro1.html Remodel Plan (User Approved)
 
 ## Completed Steps
-- [x] Analyzed project files, prototype HTML, Tailwind config
-- [x] Created detailed plan and got user approval (with theme alignment)
-- [x] Read prototype index.html and indexprototype.html for hero content reference
+- [x] Analyzed prototype & current files
+- [x] Created detailed plan & got approval (exact replication incl. effects/hovers/transitions)
 
 ## Remaining Steps
-- [x] 1. Create src/components/BookingModal.tsx (3-step modal as spec)
-- [x] 2. Update src/App.tsx: add isModalOpen state, import/render BookingModal, pass props to children
-- [x] 3. Update src/components/Header.tsx: receive modal props, add onClick to 'Book Your Wrap' buttons
-- [x] 4. Update src/components/Hero.tsx: align with prototype - 'Wrap Your Power', gold headline, 'Book Your Wrap' button, stats (100+ Vehicles, 12+ Years, 5yr Warranty), car wrap background
-- [x] 5. Test modal flow and responsive design
-- [x] 6. Update TODO.md with completion status
-
+- [x] 1. Update src/index.css: Add prototype CSS vars, gold-gradient, card-hover effects, transitions
+- [x] 2. Update src/components/Header.tsx: Exact nav w/ logo img, menu, CTA/phone (lucide icons)
+- [x] 3. Update src/components/Hero.tsx: Sync exact prototype text/images/btns/icons/transitions
+- [x] 4. Update src/components/Services.tsx: Exact 3 white-bg cards w/ images/text/lists/icons/hovers
+- [x] 5. Update src/components/Gallery.tsx: Exact dark wave-bg, 3 images/titles, hover overlays/transitions
+- [x] 6. Create src/components/Contact.tsx: Gold bg w/ waves, CTA cards, promo
+- [x] 7. Create src/components/Footer.tsx: Exact grid w/ links/phone/social
+- [x] 8. Update src/App.tsx: Render Header, Hero, Services, Gallery, Contact, Footer + Modal; remove extras
+- [x] 9. Delete unused: Features.tsx, CTA.tsx, Process.tsx, Transformations.tsx
+- [ ] 10. Test: `npm run dev`, verify exact match/responsives/effects, update TODO.md as complete

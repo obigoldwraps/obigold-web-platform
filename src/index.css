@@ -1,8 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Urbanist:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-gold: #D4AF37;
+  --dark-bg: #0A0A0A;
+  --dark-card: #111;
+  --gray-text: #A0A0A0;
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E8C547 50%, #FAD02C 100%);
+}
 
 * {
   @apply scroll-smooth;
@@ -13,7 +21,10 @@ html {
 }
 
 body {
-  @apply bg-obigold-black text-obigold-white font-body;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--dark-bg);
+  color: white;
+  line-height: 1.6;
 }
 
 h1,
@@ -26,10 +37,20 @@ h6 {
 }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #D4AF37 0%, #F4E4C1 100%);
+  background: var(--gradient-gold);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.3);
+  border-color: var(--primary-gold);
 }
 
 .gold-glow {

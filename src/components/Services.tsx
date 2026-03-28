@@ -1,79 +1,96 @@
-import { Check } from 'lucide-react';
-
-const services = [
-  {
-    title: 'Full Car Wraps',
-    description: 'Complete vehicle transformation with premium vinyl coverage.',
-    image: 'https://images.pexels.com/photos/4516692/pexels-photo-4516692.jpeg?auto=compress&cs=tinysrgb&w=800',
-    popular: true,
-  },
-  {
-    title: 'Chrome & Metallic',
-    description: 'Eye-catching chrome and metallic finishes for maximum impact.',
-    image: 'https://images.pexels.com/photos/4516683/pexels-photo-4516683.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-  {
-    title: 'Matte Finishes',
-    description: 'Sophisticated matte wraps for modern, sleek aesthetics.',
-    image: 'https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-  {
-    title: 'Carbon Fiber',
-    description: 'Realistic carbon fiber texture for a premium, technical look.',
-    image: 'https://images.pexels.com/photos/3802520/pexels-photo-3802520.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-  {
-    title: 'Partial Wraps',
-    description: 'Strategic wrapping of key panels for accent and branding.',
-    image: 'https://images.pexels.com/photos/3803517/pexels-photo-3803517.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-  {
-    title: 'Fleet Wrapping',
-    description: 'Professional branding solutions for business vehicle fleets.',
-    image: 'https://images.pexels.com/photos/4505258/pexels-photo-4505258.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-];
+import React from 'react';
+import { Check, Palette, Shield, CarFront } from 'lucide-react';
 
 export default function Services() {
   return (
-    <section id="services" className="py-20 bg-obigold-dark">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="section-heading">
-          <h2 className="section-title">
-            PREMIUM WRAP <span className="section-title-accent">SERVICES</span>
-          </h2>
-          <p className="text-obigold-white/70 text-lg max-w-2xl mx-auto">
-            From full transformations to strategic accents, we have the perfect wrap solution.
+    <section id="services" className="py-32 px-8 bg-white text-black">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-24">
+          <h2 className="text-6xl font-black mb-6 text-gray-900 tracking-tighter uppercase">PREMIUM SERVICES</h2>
+          <div className="w-32 h-1 bg-[var(--primary-gold)] mx-auto mb-12"></div>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Every vehicle is unique. Our master installers craft bespoke solutions with precision and artistry.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <div key={index} className="premium-card group relative overflow-hidden h-96">
-              {service.popular && (
-                <div className="absolute top-4 right-4 bg-obigold-gold text-obigold-black px-3 py-1 rounded text-sm font-semibold z-10">
-                  Most Popular
-                </div>
-              )}
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="group relative overflow-hidden rounded-3xl bg-black min-h-[500px] flex flex-col justify-end p-8 shadow-2xl transition-all duration-500 card-hover">
+            <img 
+              src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80"
+              alt="Color Change Wrap"
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 z-0"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
 
-              <img
-                src={service.image}
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-obigold-black via-transparent to-transparent" />
-
-              <div className="absolute inset-0 flex flex-col justify-end p-6">
-                <h3 className="text-h3 mb-2 text-obigold-white">{service.title}</h3>
-                <p className="text-obigold-white/80 text-sm mb-4">{service.description}</p>
-                <button className="flex items-center gap-2 text-obigold-gold hover:text-obigold-white transition-colors text-sm font-semibold">
-                  <Check className="w-4 h-4" />
-                  Learn More
-                </button>
+            <div className="relative z-20">
+              <div className="w-16 h-16 bg-[var(--primary-gold)] rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300">
+                <Palette className="w-8 h-8 text-black" />
               </div>
+              <h3 className="text-3xl font-bold mb-4 text-white">COLOR CHANGE</h3>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Over 1,000 premium vinyl films from 3M and Avery. Matte, satin, and chrome specialty finishes.
+              </p>
+              <ul className="space-y-2 text-gray-300 mb-8 text-sm">
+                <li className="flex items-center"><Check className="w-4 h-4 text-[var(--primary-gold)] mr-2 flex-shrink-0" />Full vehicle coverage</li>
+                <li className="flex items-center"><Check className="w-4 h-4 text-[var(--primary-gold)] mr-2 flex-shrink-0" />Multi-layer designs</li>
+              </ul>
+              <a href="#" className="inline-block w-full text-center bg-[var(--primary-gold)] text-black py-4 rounded-xl font-bold hover:bg-yellow-400 transition-all duration-300">
+                Learn More
+              </a>
             </div>
-          ))}
+          </div>
+
+          <div className="group relative overflow-hidden rounded-3xl bg-black min-h-[500px] flex flex-col justify-end p-8 shadow-2xl transition-all duration-500 card-hover">
+            <img 
+              src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80"
+              alt="Paint Protection Film"
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 z-0"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+
+            <div className="relative z-20">
+              <div className="w-16 h-16 bg-[var(--primary-gold)] rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300">
+                <Shield className="w-8 h-8 text-black" />
+              </div>
+              <h3 className="text-3xl font-bold mb-4 text-white">PAINT PROTECTION</h3>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                Self-healing PPF that safeguards your OEM paint while remaining completely invisible.
+              </p>
+              <ul className="space-y-2 text-gray-300 mb-8 text-sm">
+                <li className="flex items-center"><Check className="w-4 h-4 text-[var(--primary-gold)] mr-2 flex-shrink-0" />XPEL Ultimate Plus</li>
+                <li className="flex items-center"><Check className="w-4 h-4 text-[var(--primary-gold)] mr-2 flex-shrink-0" />Track proven durability</li>
+              </ul>
+              <a href="#" className="inline-block w-full text-center bg-[var(--primary-gold)] text-black py-4 rounded-xl font-bold hover:bg-yellow-400 transition-all duration-300">
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          <div className="group relative overflow-hidden rounded-3xl bg-black min-h-[500px] flex flex-col justify-end p-8 shadow-2xl transition-all duration-500 card-hover">
+            <img 
+              src="https://images.unsplash.com/photo-1599256621730-53517128e28e?auto=format&fit=crop&w=800&q=80"
+              alt="Ceramic Coating"
+              className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 z-0"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+
+            <div className="relative z-20">
+              <div className="w-16 h-16 bg-[var(--primary-gold)] rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-300">
+                <CarFront className="w-8 h-8 text-black" />
+              </div>
+              <h3 className="text-3xl font-bold mb-4 text-white">CERAMIC COATING</h3>
+              <p className="text-gray-300 leading-relaxed mb-6">
+                9H coatings with unmatched hydrophobicity, UV protection, and mirror-like gloss.
+              </p>
+              <ul className="space-y-2 text-gray-300 mb-8 text-sm">
+                <li className="flex items-center"><Check className="w-4 h-4 text-[var(--primary-gold)] mr-2 flex-shrink-0" />5+ Year Warranty</li>
+                <li className="flex items-center"><Check className="w-4 h-4 text-[var(--primary-gold)] mr-2 flex-shrink-0" />Mirror-like shine</li>
+              </ul>
+              <a href="#" className="inline-block w-full text-center bg-[var(--primary-gold)] text-black py-4 rounded-xl font-bold hover:bg-yellow-400 transition-all duration-300">
+                Learn More
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
