@@ -1,16 +1,371 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OBIGOLD Wraps Premium Homepage</title>
-    <meta property="og:image" content="https://bolt.new/static/og_default.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBIGOLD Wraps | Premium Vehicle Wraps</title>
+    <meta name="description" content="Luxury vehicle wraps and customization by OBIGOLD Wraps. Transform your car with premium vinyl wraps, PPF and ceramic coating.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Pro Kit -->
+    <script src="https://kit.fontawesome.com/8e98006f77.js" crossorigin="anonymous"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --dark-bg: #0A0A0A;
+            --dark-card: #111;
+            --gray-text: #A0A0A0;
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E8C547 50%, #FAD02C 100%);
+        }
+        
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: white;
+            line-height: 1.6;
+        }
+        
+        .gold-gradient {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.3);
+            border-color: var(--primary-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-[var(--dark-bg)]/95 backdrop-blur-md z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-3xl font-bold tracking-tight">
+                OBIGOLD <span class="gold-gradient">WRAPS</span>
+            </div>
+            <div class="hidden lg:flex items-center gap-12">
+                <a href="#services" class="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Services</a>
+                <a href="#gallery" class="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Gallery</a>
+                <a href="#about" class="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</a>
+                <a href="#contact" class="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Contact</a>
+                <div class="flex items-center gap-3">
+                    <button class="bg-[var(--primary-gold)] text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition-all duration-300 text-sm">
+                        Free Quote
+                    </button>
+                    <div class="w-px h-6 bg-gray-600"></div>
+                    <a href="tel:+15551234567" class="text-sm font-medium hover:text-[var(--primary-gold)] transition">
+                        <i class="fa fa-phone mr-2"></i>
+                        Call Now
+                    </a>
+                </div>
+            </div>
+            <button class="lg:hidden">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden pt-20">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 bg-cover bg-center" 
+             style="background-image: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.8)), url('https://images.unsplash.com/photo-1558618047-b01663a9e3d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-6">
+            <!-- Rating Stars -->
+            <div class="flex justify-center items-center gap-1 mb-12">
+                <i class="fa fa-star text-yellow-400 text-2xl"></i>
+                <i class="fa fa-star text-yellow-400 text-2xl"></i>
+                <i class="fa fa-star text-yellow-400 text-2xl"></i>
+                <i class="fa fa-star text-yellow-400 text-2xl"></i>
+                <i class="fa fa-star text-yellow-400 text-2xl"></i>
+                <span class="ml-3 text-lg font-medium text-white/80">(4.9★ 127 Reviews)</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="text-7xl lg:text-8xl font-black mb-8 leading-tight">
+                WRAP YOUR <span class="gold-gradient block text-9xl lg:text-[10rem]">POWER</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-xl lg:text-2xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed">
+                Premium vinyl wrapping that doesn't just protect your investment - it makes your vehicle a rolling masterpiece 
+                that demands attention wherever you go.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col lg:flex-row gap-6 justify-center mb-20">
+                <button class="bg-[var(--primary-gold)] hover:bg-yellow-400 text-black px-12 py-6 rounded-xl font-bold text-xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-2 transition-all duration-500 group">
+                    <span>BOOK CONSULTATION</span>
+                    <i class="fa fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"></i>
+                </button>
+                
+                <button class="border-2 border-[var(--primary-gold)] text-[var(--primary-gold)] px-12 py-6 rounded-xl font-bold text-xl hover:bg-[var(--primary-gold)] hover:text-black backdrop-blur-sm hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500">
+                    VIEW GALLERY
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-12 text-center">
+                <div class="group">
+                    <div class="text-5xl font-black gold-gradient mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
+                    <div class="text-lg text-white/70 font-medium tracking-wide uppercase">Vehicles Wrapped</div>
+                </div>
+                
+                <div class="group">
+                    <div class="text-5xl font-black gold-gradient mb-2 group-hover:scale-110 transition-transform duration-300">12+</div>
+                    <div class="text-lg text-white/70 font-medium tracking-wide uppercase">Years Experience</div>
+                </div>
+                
+                <div class="group">
+                    <div class="text-5xl font-black gold-gradient mb-2 group-hover:scale-110 transition-transform duration-300">10yr</div>
+                    <div class="text-lg text-white/70 font-medium tracking-wide uppercase">Warranty</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fa fa-chevron-down text-3xl text-white/60 hover:text-white transition-all duration-300"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 px-8 bg-[var(--dark-card)]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-24">
+                <h2 class="text-6xl font-black mb-6">PREMIUM SERVICES</h2>
+                <div class="w-32 h-1 bg-[var(--primary-gold)] mx-auto mb-12"></div>
+                <p class="text-xl text-[var(--gray-text)] max-w-2xl mx-auto">
+                    Every vehicle is unique. Our master installers craft bespoke solutions with precision and artistry.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group card-hover">
+                    <div class="w-20 h-20 bg-[var(--primary-gold)] rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform">
+                        <i class="fa fa-palette text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6 text-center">COLOR CHANGE</h3>
+                    <p class="text-[var(--gray-text)] leading-relaxed text-lg mb-8">
+                        Over 1,000 premium vinyl films from 3M, Avery, Hexis, and Primal. Matte, satin, metallic, chrome, and specialty finishes.
+                    </p>
+                    <ul class="space-y-3 text-[var(--gray-text)] mb-8">
+                        <li><i class="fa fa-check text-[var(--primary-gold)] mr-3"></i>Full vehicle coverage</li>
+                        <li><i class="fa fa-check text-[var(--primary-gold)] mr-3"></i>Multi-layer designs</li>
+                        <li><i class="fa fa-check text-[var(--primary-gold)] mr-3"></i>Custom color matching</li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="#" class="inline-block bg-[var(--primary-gold)] text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all group-hover:shadow-xl">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="group card-hover">
+                    <div class="w-20 h-20 bg-[var(--primary-gold)] rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform">
+                        <i class="fa fa-shield-alt text-black text-2xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6 text-center">PAINT PROTECTION</h3>
+                    <p class="text-[var(--gray-text)] leading-relaxed text-lg mb-8">
+                        Self-healing Paint Protection Film (PPF) that safeguards your OEM paint while remaining invisible.
+                    </p>
+                    <ul class="space-y-3 text-[var(--gray-text)] mb-8">
+                        <li><i class="fa fa-check text-[var(--primary-gold)] mr-3"></i>XPEL Ultimate Plus</li>
+                        <li><i class="fa fa-check text-[var(--primary-gold)] mr-3"></i>Full front package</li>
+                        <li><i class="fa fa-check text-[var(--primary-gold)] mr-3"></i>Track proven durability</li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="#" class="inline-block bg-[var(--primary-gold)] text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all group-hover:shadow-xl">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="group card-hover">
+                    <div class="w-20 h-20 bg-[var(--primary-gold)] rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform">
+                        <i class="fa fa-car text-black text-xl"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6 text-center">CERAMIC COATING</h3>
+                    <p class="text-[var(--gray-text)] leading-relaxed text-lg mb-8">
+                        9H ceramic coatings with unmatched hydrophobicity, UV protection, and mirror-like gloss retention.
+                    </p>
+                    <ul class="space-y-3 text-[var(--gray-text)] mb-8">
+                        <li><i class="fa fa-check text-[var(--primary-gold)] mr-3"></i>5+ Year Warranty</li>
+                        <li><i class="fa fa-check text-[var(--primary-gold)] mr-3"></i>Full detail prep</li>
+                        <li><i class="fa fa-check text-[var(--primary-gold)] mr-3"></i>Graphene-enhanced</li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="#" class="inline-block bg-[var(--primary-gold)] text-black px-8 py-4 rounded-lg font-bold hover:bg-yellow-400 transition-all group-hover:shadow-xl">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section id="gallery" class="py-32 px-8 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-[var(--dark-bg)] to-[var(--dark-card)]"></div>
+        <div class="relative max-w-7xl mx-auto">
+            <div class="text-center mb-24">
+                <h2 class="text-6xl font-black mb-6 gold-gradient">RECENT TRANSFORMATIONS</h2>
+                <p class="text-xl text-[var(--gray-text)] max-w-2xl mx-auto">
+                    Don't take our word for it. See what we're capable of.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Matte Black Wrap" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-2">Tesla Model S</h4>
+                            <p class="text-[var(--primary-gold)] font-semibold">Satin Black + Gold Accents</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1558618048-d480603e8684?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Chrome Delete" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-2">BMW M4</h4>
+                            <p class="text-[var(--primary-gold)] font-semibold">Full Matte Wrap + PPF</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-500 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1571896349840-e26b311f6f5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Custom Color" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                        <div>
+                            <h4 class="text-2xl font-bold mb-2">Lamborghini Huracán</h4>
+                            <p class="text-[var(--primary-gold)] font-semibold">Satin Gunmetal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-20">
+                <a href="#" class="inline-block bg-[var(--primary-gold)] hover:bg-yellow-400 text-black px-12 py-6 rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transform hover:-translate-y-2 transition-all duration-500">
+                    SEE FULL GALLERY <i class="fa fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-32 px-8 bg-gradient-to-b from-[var(--primary-gold)] to-yellow-400 text-black">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-6xl font-black mb-8">READY TO TRANSFORM?</h2>
+            <p class="text-2xl mb-12 opacity-90">
+                Your dream wrap is one consultation away. Schedule today and see your vision come to life.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <a href="tel:+15551234567" class="group bg-black/20 backdrop-blur-sm text-black hover:bg-black px-12 py-8 rounded-2xl font-bold text-xl flex flex-col items-center gap-4 hover:scale-105 transition-all duration-300 border-2 border-black/30">
+                    <i class="fa fa-phone text-3xl group-hover:-translate-y-1 transition-transform"></i>
+                    <div class="text-center">
+                        <div class="font-black text-2xl">(555) 123-4567</div>
+                        <div class="opacity-75 text-sm">Call Now</div>
+                    </div>
+                </a>
+                <a href="#" class="group bg-black/20 backdrop-blur-sm text-black hover:bg-black px-12 py-8 rounded-2xl font-bold text-xl flex flex-col items-center gap-4 hover:scale-105 transition-all duration-300 border-2 border-black/30">
+                    <i class="fa fa-calendar text-3xl group-hover:-translate-y-1 transition-transform"></i>
+                    <div class="text-center">
+                        <div class="font-black text-2xl">Book Now</div>
+                        <div class="opacity-75 text-sm">Free Consultation</div>
+                    </div>
+                </a>
+                <a href="#" class="group bg-black/20 backdrop-blur-sm text-black hover:bg-black px-12 py-8 rounded-2xl font-bold text-xl flex flex-col items-center gap-4 hover:scale-105 transition-all duration-300 border-2 border-black/30">
+                    <i class="fab fa-whatsapp text-3xl group-hover:-translate-y-1 transition-transform"></i>
+                    <div class="text-center">
+                        <div class="font-black text-2xl">WhatsApp</div>
+                        <div class="opacity-75 text-sm">Instant Chat</div>
+                    </div>
+                </a>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-8">
+                <p class="text-lg opacity-90">
+                    <span class="font-bold text-2xl text-black">🎁 LIMITED TIME:</span> 
+                    Book within 48hrs and receive complimentary full-detail prep ($750 value)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-8 bg-[var(--dark-bg)] border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
+                <div class="text-center md:text-left">
+                    <div class="text-3xl font-bold mb-4">
+                        OBIGOLD <span class="gold-gradient">WRAPS</span>
+                    </div>
+                    <p class="text-[var(--gray-text)] mb-6">
+                        Where automotive artistry meets precision engineering. 
+                        Your vehicle deserves the best.
+                    </p>
+                    <div class="flex justify-center md:justify-start gap-6 text-[var(--gray-text)]">
+                        <a href="#" class="hover:text-[var(--primary-gold)] transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="hover:text-[var(--primary-gold)] transition"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="hover:text-[var(--primary-gold)] transition"><i class="fab fa-youtube text-xl"></i></a>
+                        <a href="#" class="hover:text-[var(--primary-gold)] transition"><i class="fab fa-tiktok text-xl"></i></a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-8 text-sm text-[var(--gray-text)]">
+                    <div>
+                        <h5 class="font-bold text-white mb-4 uppercase tracking-wider">Services</h5>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-[var(--primary-gold)] transition">Color Change</a></li>
+                            <li><a href="#" class="hover:text-[var(--primary-gold)] transition">Paint Protection Film</a></li>
+                            <li><a href="#" class="hover:text-[var(--primary-gold)] transition">Ceramic Coating</a></li>
+                            <li><a href="#" class="hover:text-[var(--primary-gold)] transition">Chrome Delete</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-white mb-4 uppercase tracking-wider">Company</h5>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-[var(--primary-gold)] transition">About Us</a></li>
+                            <li><a href="#" class="hover:text-[var(--primary-gold)] transition">Gallery</a></li>
+                            <li><a href="#" class="hover:text-[var(--primary-gold)] transition">Process</a></li>
+                            <li><a href="#" class="hover:text-[var(--primary-gold)] transition">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center md:text-right">
+                    <div class="font-bold text-2xl mb-6">
+                        (555) 123-4567
+                    </div>
+                    <p class="text-[var(--gray-text)] mb-6">
+                        Mon-Fri 9AM-7PM | Sat 10AM-5PM
+                    </p>
+                    <div class="space-y-3">
+                        <p class="text-[var(--gray-text)] text-sm">100% Satisfaction Guaranteed</p>
+                        <p class="text-[var(--gray-text)] text-sm">Lifetime Installation Warranty</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-12 mt-12 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-[var(--gray-text)]">
+                    <p>&copy; 2026 OBIGOLD Wraps. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="hover:text-[var(--primary-gold)] transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-[var(--primary-gold)] transition">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
 </html>
