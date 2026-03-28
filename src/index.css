@@ -29,6 +29,7 @@
   --dark-card: #111;
   --gray-text: #A0A0A0;
   --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E8C547 50%, #FAD02C 100%);
+  --secondary-gold: #E8C547;
 }
 
 * {

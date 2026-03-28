@@ -46,7 +46,7 @@ export default function Hero({ openModal }: HeroProps) {
           <button 
             type="button"
             onClick={openModal}
-            className="group relative overflow-hidden px-12 py-6 rounded-xl font-bold text-xl tracking-wider bg-[var(--primary-gold)] text-black transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(255,215,0,0.6),0_0_60px_rgba(212,175,55,0.3)] hover:-translate-y-2 flex items-center gap-3"
+            className="group relative overflow-hidden px-12 py-6 rounded-xl font-bold text-xl tracking-wider bg-[var(--secondary-gold)] text-black transition-all duration-500 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(255,215,0,0.6),0_0_60px_rgba(212,175,55,0.3)] hover:-translate-y-2 flex items-center gap-3"
           >
             <span className="relative z-10">Book Your Wrap</span>
             <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300 relative z-10" fill="currentColor" viewBox="0 0 24 24">
