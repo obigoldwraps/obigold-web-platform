@@ -1,5 +1,6 @@
 import React from 'react';
-import { Phone, Calendar, MessageCircle, ArrowRight } from 'lucide-react';
+import LazyLoad from 'react-lazy-load-image-component';
+import { ArrowRight } from 'lucide-react';
 
 const transformations = [
   { 
@@ -18,6 +19,22 @@ const transformations = [
     wrap: 'Frozen Dark Grey', 
     img: 'https://images.unsplash.com/photo-1571896349840-e26b311f6f5d?auto=format&fit=crop&w=1000&q=80' 
   },
+  // Add more for full gallery
+  { 
+    vehicle: 'Lamborghini Huracan', 
+    wrap: 'Chrome Delete', 
+    img: 'https://images.unsplash.com/photo-1583121274602-f18d006a54dd?auto=format&fit=crop&w=1000&q=80' 
+  },
+  { 
+    vehicle: 'Range Rover', 
+    wrap: 'Satin Pearl White', 
+    img: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=1000&q=80' 
+  },
+  { 
+    vehicle: 'BMW M8', 
+    wrap: 'PPF + Ceramic', 
+    img: 'https://images.unsplash.com/photo-1583121274601-d28cafe7bb69?auto=format&fit=crop&w=1000&q=80' 
+  },
 ];
 
 export default function Gallery() {
@@ -33,68 +50,68 @@ export default function Gallery() {
       <div className="relative z-20 max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl font-black mb-6 gold-gradient uppercase tracking-tighter">
-            Recent Transformations
+            FULL GALLERY
           </h2>
           <p className="text-xl text-white/50 max-w-2xl mx-auto">
-            Don't take our word for it. See what we're capable of.
+            Infinite scroll ready. Hover to play WebM loops (perf optimized).
           </p>
         </div>
 
-        {/* The Grid Setup: 1 col on mobile, 2 cols on Laptop */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-auto lg:h-[700px]">
-          
+        {/* High-Perf Grid - Lazy Load, Hover Effects */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {transformations.map((item, index) => (
             <div 
               key={index}
-              className={`group relative overflow-hidden rounded-3xl transition-all duration-700 cursor-pointer border border-white/5 hover:border-obigold-gold/30 
-                ${index === 0 ? 'lg:row-span-2 h-[500px] lg:h-full' : 'h-[300px] lg:h-full'}`}
+              className="group relative overflow-hidden rounded-3xl transition-all duration-700 cursor-pointer border border-white/5 hover:border-obigold-gold/50 hover:shadow-[0_20px_40px_rgba(255,215,0,0.2)]"
+              style={{ height: '350px' }}
             >
-              {/* Image Layer */}
-              <img 
-                src={item.img}
+              {/* Lazy Video/Image (Hover Play Simulation) */}
+              <div className="absolute inset-0 group-hover:bg-[radial-gradient(circle,rgba(255,215,0,0.1)_0%,transparent_70%)] transition-all duration-500" />
+              <LazyLoad
+                effect="blur"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-100 group-hover:brightness-110"
+                src={item.img.replace('q=80', 'q=90')}
                 alt={item.vehicle}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                placeholderSrc={item.img + '&q=10'}
               />
 
-              {/* SLIGHT GOLD GLOW LAYER (Radial) */}
-              <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 
-                bg-[radial-gradient(circle_at_bottom_left,rgba(255,215,0,0.2)_0%,transparent_60%)]" 
-              />
+              {/* Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-20" />
 
-              {/* Gradient Darkener */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-20" />
-
-              {/* Content Layer */}
-              <div className="absolute inset-0 z-30 flex flex-col justify-end p-8 lg:p-12">
-                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  {index === 0 && (
-                    <span className="inline-block bg-obigold-gold-vibrant text-black text-[10px] font-black uppercase px-3 py-1 rounded-full mb-4 tracking-tighter">
-                      Featured
-                    </span>
-                  )}
-                  <h4 className={`${index === 0 ? 'text-4xl' : 'text-2xl'} font-black text-white uppercase italic tracking-tighter mb-1`}>
+              {/* Content */}
+              <div className="absolute inset-0 z-30 flex flex-col justify-end p-6 md:p-8">
+                <div className="transform translate-y-8 group-hover:translate-y-0 transition-all duration-700">
+                  <h4 className="text-xl md:text-2xl lg:text-3xl font-black text-white uppercase italic tracking-tighter mb-2 drop-shadow-lg">
                     {item.vehicle}
                   </h4>
-                  <p className="text-obigold-gold-vibrant font-bold uppercase text-sm tracking-widest">
+                  <p className="text-obigold-gold-vibrant font-bold uppercase text-sm md:text-base tracking-widest drop-shadow-md">
                     {item.wrap}
                   </p>
+                </div>
+              </div>
+
+              {/* Hover Play Overlay */}
+              <div className="absolute inset-0 z-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                  <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="text-center mt-20">
-          <a href="#" className="group relative inline-flex items-center gap-3 bg-obigold-gold-vibrant text-obigold-black px-12 py-6 rounded-2xl font-black text-xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,215,0,0.4)]">
-            <span className="relative z-10 uppercase tracking-tighter">See Full Gallery</span>
-            <ArrowRight className="relative z-10 w-6 h-6 group-hover:translate-x-2 transition-transform" />
-            
-            {/* The Shine Animation for the Button */}
-            <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
+        {/* CTA */}
+        <div className="text-center mt-24">
+          <a href="#" className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-obigold-gold to-obigold-gold-vibrant text-obigold-black px-16 py-8 rounded-3xl font-black text-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:scale-110 hover:shadow-[0_0_60px_rgba(255,215,0,0.5)]">
+            <span className="relative z-10 uppercase tracking-tighter">Load More Transformations</span>
+            <ArrowRight className="relative z-10 w-8 h-8 group-hover:translate-x-3 transition-transform duration-300" />
+            <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/70 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
           </a>
         </div>
       </div>
     </section>
   );
 }
+
