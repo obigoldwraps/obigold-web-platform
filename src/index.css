@@ -1,8 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Syncopate:wght@700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateZ(0) scaleY(1) scaleX(1);
+  }
+  30% {
+    transform: translateX(0%) translateZ(0) scaleY(1.05) scaleX(1.05);
+  }
+  60% {
+    transform: translateX(100%) translateZ(0) scaleY(1) scaleX(1);
+  }
+  100% {
+    transform: translateX(100%) translateZ(0) scaleY(1) scaleX(1);
+  }
+}
+
+.animate-shine {
+  animation: shine 0.75s ease-in-out;
+}
 
 :root {
   --primary-gold: #D4AF37;
@@ -41,6 +60,28 @@ h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.gold-chrome-text {
+  background: linear-gradient(
+    to bottom, 
+    #bf953f 0%,    
+    #fcf6ba 20%,   
+    #b38728 50%,   
+    #fbf5b7 80%,   
+    #aa771c 100%   
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.3));
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.gold-chrome-text:hover {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7)) brightness(1.2);
+  transform: skewX(-2deg);
 }
 
 .card-hover {
