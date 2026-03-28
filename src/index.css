@@ -16,7 +16,12 @@ body {
   @apply bg-obigold-black text-obigold-white font-body;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply font-heading uppercase tracking-wide;
 }
 
@@ -54,4 +59,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title-accent {
   @apply text-obigold-gold;
+}
+
+@layer utilities {
+  .text-shine-gold {
+    background: linear-gradient(to right,
+        #bf953f 0%,
+        #fcf6ba 25%,
+        #b38728 50%,
+        #fbf5b7 75%,
+        #aa771c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-shine-gold {
+    background: linear-gradient(135deg,
+        #d4af37 0%,
+        #f6e27a 45%,
+        #d4af37 50%,
+        #aa8418 100%);
+  }
 }

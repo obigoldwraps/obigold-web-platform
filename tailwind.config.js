@@ -6,7 +6,13 @@ export default {
       colors: {
         'obigold-black': '#0A0A0A',
         'obigold-dark': '#1C1C1C',
-        'obigold-gold': '#D4AF37',
+        'obigold-gold': {
+          light: '#F6E27A',  // Bright highlight
+          DEFAULT: '#D4AF37', // Your base gold
+          vibrant: '#FFD700', // "Pure" gold for pop
+          deep: '#AA8418',    // For shadows and depth
+          metallic: '#B8860B', // Darker "Old Gold"
+        },
         'obigold-white': '#F8F8F8',
         'obigold-grey': '#333333',
       },
@@ -24,6 +30,8 @@ export default {
         'fade-in': 'fadeIn 0.8s ease-in',
         'slide-up': 'slideUp 0.8s ease-out',
         'glow': 'glow 2s ease-in-out infinite',
+        // New Shine Animation for the button streak
+        'shine': 'shine 0.8s ease-in-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -37,6 +45,11 @@ export default {
         glow: {
           '0%, 100%': { boxShadow: '0 0 20px rgba(212, 175, 55, 0.3)' },
           '50%': { boxShadow: '0 0 40px rgba(212, 175, 55, 0.6)' },
+        },
+        // New Shine Keyframes
+        shine: {
+          '0%': { left: '-100%' },
+          '100%': { left: '100%' },
         },
       },
     },
