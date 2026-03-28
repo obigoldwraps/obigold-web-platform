@@ -3,7 +3,7 @@ import { Phone, Calendar, MessageCircle } from 'lucide-react';
 
 export default function Contact() {
     return (
-        <section id="contact" className="relative py-32 px-8 bg-[#D4AF37] text-black">
+        <section id="contact" className="relative py-32 px-8 bg-[#E8C547] text-black">
             <div className="absolute top-0 left-0 right-0 leading-[0] -mt-[1px] z-10">
                 <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto transform scale-y-[1.05] origin-top">
                     <path d="M0 100L60 90C120 80 240 60 360 50C480 40 600 40 720 45C840 50 960 60 1080 65C1200 70 1320 70 1380 70L1440 70V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V100Z" fill="#0A0A0A" />

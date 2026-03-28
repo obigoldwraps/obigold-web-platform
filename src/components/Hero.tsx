@@ -56,7 +56,7 @@ export default function Hero({ openModal }: HeroProps) {
             <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-25 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
           </button>
 
-          <button className="border-2 border-[var(--primary-gold)] text-[var(--primary-gold)] px-12 py-6 rounded-xl font-bold text-xl hover:bg-[var(--primary-gold)] hover:text-black backdrop-blur-sm hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 card-hover">
+          <button className="border-2 border-[var(--secondary-gold)] text-[var(--secondary-gold)] px-12 py-6 rounded-xl font-bold text-xl hover:bg-[var(--secondary-gold)] hover:text-black backdrop-blur-sm hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 card-hover">
             VIEW GALLERY
           </button>
         </div>

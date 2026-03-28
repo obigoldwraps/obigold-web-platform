@@ -27,7 +27,7 @@ export default function Header({ openModal }: HeaderProps) {
           <a href="#about" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</a>
           <a href="#contact" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Contact</a>
           <div className="flex items-center gap-3">
-            <button onClick={openModal} className="bg-[var(--primary-gold)] text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition-all duration-300 text-sm">
+            <button onClick={openModal} className="bg-[var(--secondary-gold)] text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition-all duration-300 text-sm">
               Free Quote
             </button>
             <div className="w-px h-6 bg-gray-600"></div>
