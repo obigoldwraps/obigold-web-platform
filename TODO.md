@@ -1,13 +1,16 @@
-# Obigold Wraps Hero Styling Implementation
+# Multi-Step Booking Modal + Hero Theme Alignment
 
 ## Completed Steps
-- [x] 1. Analyzed prototype HTML/CSS, Hero.tsx, project structure, and dependencies
-- [x] 2. Created detailed edit plan and got user approval
+- [x] Analyzed project files, prototype HTML, Tailwind config
+- [x] Created detailed plan and got user approval (with theme alignment)
+- [x] Read prototype index.html and indexprototype.html for hero content reference
 
 ## Remaining Steps
-- [x] 3. Update src/components/Hero.tsx with prototype hero styling (gradient overlay, fonts, layout, animations matching indexprototype.html hero section)
-- [x] 4. Test responsive design and visual match
-- [x] 5. Update TODO.md with completion status
-- [x] 6. Run `npm run dev` to preview (if needed)
-- [x] 7. attempt_completion
+- [x] 1. Create src/components/BookingModal.tsx (3-step modal as spec)
+- [x] 2. Update src/App.tsx: add isModalOpen state, import/render BookingModal, pass props to children
+- [x] 3. Update src/components/Header.tsx: receive modal props, add onClick to 'Book Your Wrap' buttons
+- [x] 4. Update src/components/Hero.tsx: align with prototype - 'Wrap Your Power', gold headline, 'Book Your Wrap' button, stats (100+ Vehicles, 12+ Years, 5yr Warranty), car wrap background
+- [ ] 5. Test modal flow and responsive design
+- [ ] 6. Update TODO.md with completion status
+- [ ] 7. Run `npm run dev` and attempt_completion
 

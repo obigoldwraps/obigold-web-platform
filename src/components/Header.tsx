@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Menu, X, Shield } from 'lucide-react';
 
-export default function Header() {
+interface HeaderProps {
+  openModal?: () => void;
+}
+
+export default function Header({ openModal }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -22,7 +26,7 @@ export default function Header() {
           <a href="#contact" className="text-obigold-white hover:text-obigold-gold transition-colors">Contact</a>
         </nav>
 
-        <button className="hidden md:block bg-obigold-gold text-obigold-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition-colors">
+        <button onClick={openModal} className="hidden md:block bg-obigold-gold text-obigold-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition-colors">
           Book Your Wrap
         </button>
 
@@ -39,7 +43,7 @@ export default function Header() {
             <a href="#gallery" className="text-obigold-white hover:text-obigold-gold transition-colors">Portfolio</a>
             <a href="#process" className="text-obigold-white hover:text-obigold-gold transition-colors">Process</a>
             <a href="#contact" className="text-obigold-white hover:text-obigold-gold transition-colors">Contact</a>
-            <button className="bg-obigold-gold text-obigold-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition-colors w-full">
+            <button onClick={openModal} className="bg-obigold-gold text-obigold-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition-colors w-full">
               Book Your Wrap
             </button>
           </nav>
