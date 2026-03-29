@@ -1,97 +1,165 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+
+// Images
 import gle63satin from '../images/gle63satin.png';
+import gleblack from '../images/gleblack.png';
 import rx350blue from '../images/rx350blue.png';
+import lexgrey from '../images/lexgrey.png';
 import camarogreen from '../images/camarogreen.png';
+import camaroblack from '../images/camaroblack.png';
 
 const transformations = [
-  { 
-    vehicle: 'Mercedes-AMG GLE53', 
-    wrap: 'Satin Metallic Orange', 
-    img: gle63satin,
+  {
+    vehicle: 'Mercedes-AMG GLE53',
+    wrap: 'Satin Metallic Orange',
+    before: gleblack,
+    after: gle63satin,
     featured: true
   },
-  { 
-    vehicle: 'Lexus RX 350', 
-    wrap: 'Racing Blue Edition', 
-    img: rx350blue, 
+  {
+    vehicle: 'Lexus RX 350',
+    wrap: 'Racing Blue Edition',
+    before: lexgrey,
+    after: rx350blue,
   },
-  { 
-    vehicle: 'Chevrolet Camaro', 
-    wrap: 'Viper Green', 
-    img: camarogreen,
+  {
+    vehicle: 'Chevrolet Camaro',
+    wrap: 'Viper Green',
+    before: camaroblack,
+    after: camarogreen,
   },
 ];
 
 export default function Transformations() {
+  const [selected, setSelected] = useState<null | typeof transformations[0]>(null);
+  const [showAfter, setShowAfter] = useState(false);
+
+  useEffect(() => {
+    let interval: number;
+    if (selected) {
+      // 1. Initial delay to let 'Before' image settle
+      const initialTimeout = setTimeout(() => setShowAfter(true), 800);
+
+      // 2. Set up the ping-pong loop every 4 seconds
+      interval = setInterval(() => {
+        setShowAfter((prev) => !prev);
+      }, 4000);
+
+      return () => {
+        clearTimeout(initialTimeout);
+        clearInterval(interval);
+      };
+    } else {
+      setShowAfter(false);
+    }
+  }, [selected]);
+
   return (
     <section id="transformations" className="relative py-32 px-4 md:px-8 bg-[#0A0A0A] overflow-hidden">
-      {/* Top Wave */}
-      <div className="absolute top-0 left-0 right-0 leading-[0] -mt-[2px] z-10">
-        <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto transform scale-y-[1.1] origin-top">
-          <path d="M0 100L60 90C120 80 240 60 360 50C480 40 600 40 720 45C840 50 960 60 1080 65C1200 70 1320 70 1380 70L1440 70V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V100Z" fill="white" />
-        </svg>
-      </div>
 
-      <div className="relative z-20 max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 gold-gradient uppercase tracking-tighter">
-            TRANSFORMATIONS
-          </h2>
-          <p className="text-xl text-white/50 max-w-2xl mx-auto">
-            High-speed images of real Obigold transformations.
-          </p>
-        </div>
-
-        {/* Optimized Grid: 1 Big, 2 Small */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:h-[600px]">
-          {transformations.map((item, index) => (
-            <div 
-              key={index}
-              className={`group relative overflow-hidden rounded-3xl transition-all duration-700 cursor-pointer border border-white/5 hover:border-obigold-gold/30 
+      {/* 2. Grid Layout (1 Big, 2 Small) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:h-[600px]">
+        {transformations.map((item, index) => (
+          <motion.div
+            key={index}
+            layoutId={`card-${index}`}
+            onClick={() => setSelected(item)}
+            className={`group relative overflow-hidden rounded-3xl transition-all duration-700 cursor-pointer border border-white/5 hover:border-[var(--secondary-gold)]/30 
                 ${index === 0 ? 'lg:col-span-1 lg:row-span-2 h-[450px] lg:h-full' : 'h-[280px]'}`}
-            >
-              {/* Lazy Load Image with Blur Effect */}\n              <LazyLoadImage
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                effect="blur"
-                width={item.img.split('w=')[1]?.split('&')[0] || '100%'}
-                height="100%"
-                src={item.img}
-                alt={`${item.vehicle} - ${item.wrap}`}
-                placeholderSrc={item.img + '&q=10'} // Low quality placeholder
-              />
+          >
+            <LazyLoadImage
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+              effect="blur"
+              src={item.after}
+              alt={item.vehicle}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent z-20" />
 
-              {/* Gold Glow Layer */}
-              <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 
-                bg-[radial-gradient(circle_at_bottom_left,rgba(255,215,0,0.25)_0%,transparent_50%)]" 
-              />
-
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-20" />
-
-              {/* Content */}
-              <div className="absolute inset-0 z-30 flex flex-col justify-end p-8 lg:p-12">
-                <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-700">
-                  {index === 0 && (
-                    <span className="inline-block bg-obigold-gold-vibrant text-black text-[10px] font-black uppercase px-3 py-1 rounded-full mb-4 tracking-tighter">
-                      Featured
-                    </span>
-                  )}
-                  <h4 className={`${index === 0 ? 'text-3xl lg:text-4xl' : 'text-xl lg:text-2xl'} font-black text-white uppercase italic tracking-tighter mb-1`}>
-                    {item.vehicle}
-                  </h4>
-                  <p className="text-obigold-gold-vibrant font-bold uppercase text-sm lg:text-base tracking-widest">
-                    {item.wrap}
-                  </p>
-                </div>
-              </div>
+            <div className="absolute inset-0 z-30 flex flex-col justify-end p-8">
+              <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter">{item.vehicle}</h4>
+              <p className="text-[var(--secondary-gold)] font-bold uppercase text-xs tracking-widest">{item.wrap}</p>
             </div>
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
+
+      {/* FULL SCREEN DYNAMIC MODAL */}
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/98 p-4 md:p-12 backdrop-blur-2xl"
+          >
+        {/* Close Button */}
+        <button
+          onClick={() => setSelected(null)}
+          className="absolute top-8 right-8 z-[110] text-white/40 hover:text-[var(--secondary-gold)] transition-all hover:scale-110"
+        >
+          <X size={48} strokeWidth={1} />
+        </button>
+
+        <div className="relative w-full max-w-7xl aspect-[16/9] md:aspect-video rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(0,0,0,1)] border border-white/5">
+
+          {/* 1. FACTORY IMAGE (Always loaded first) */}
+          <img
+            src={selected.before}
+            className="absolute inset-0 w-full h-full object-cover"
+            alt="Factory Finish"
+          />
+
+          {/* 2. CUSTOM WRAP IMAGE (The Wipe) */}
+          <motion.img
+            src={selected.after}
+            initial={{ clipPath: 'inset(0 100% 0 0)' }}
+            animate={{
+              clipPath: showAfter ? 'inset(0 0% 0 0)' : 'inset(0 100% 0 0)'
+            }}
+            transition={{
+              duration: 2.2,
+              ease: [0.65, 0, 0.35, 1] // Custom cubic-bezier for a "heavy" luxury slide
+            }}
+            className="absolute inset-0 w-full h-full object-cover z-10"
+            alt="Custom Wrap"
+          />
+
+          {/* 3. THE GOLD BLADE (Leading Edge) */}
+          <motion.div
+            initial={{ left: '0%' }}
+            animate={{ left: showAfter ? '100%' : '0%' }}
+            transition={{
+              duration: 2.2,
+              ease: [0.65, 0, 0.35, 1]
+            }}
+            className="absolute top-0 bottom-0 w-[3px] bg-[var(--secondary-gold)] z-20 shadow-[0_0_40px_#D4AF37,0_0_10px_#D4AF37]"
+            style={{ transform: 'translateX(-50%)' }}
+          />
+
+          {/* 4. DYNAMIC LABELS */}
+          <div className="absolute top-10 left-10 z-30 flex flex-col gap-4">
+            <motion.div
+              animate={{ opacity: showAfter ? 1 : 0.5, scale: showAfter ? 1.05 : 1 }}
+              className={`px-4 py-1 rounded-full border text-[10px] font-black tracking-[0.2em] uppercase transition-colors ${showAfter ? 'bg-[var(--secondary-gold)] text-black border-transparent' : 'text-white border-white/20'}`}
+            >
+              {showAfter ? 'Obigold Wrap' : 'Original Paint'}
+            </motion.div>
+
+            <h3 className="text-4xl md:text-7xl font-black text-white italic tracking-tighter uppercase leading-none drop-shadow-2xl">
+              {selected.vehicle}
+            </h3>
+          </div>
+
+          {/* BOTTOM STRIP */}
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
-
