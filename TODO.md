@@ -1,8 +1,5 @@
-# Obigold Wraps Redesign TODO
+# TODO: Fix LazyLoadImage issue in Transformations.tsx
 
-## Completed
-- [x] Planning & file analysis
-- [x] 1. Install dependencies ✓
-- [x] 2-3. Hero/BeforeAfterHero merge (single Hero.tsx, fixed black screen) ✓
-- [x] Framer Motion perf optimization: minimal wow moments only, images LazyLoad ✓
-
+- [x] 1. Update import: Change `import LazyLoad from 'react-lazy-load-image-component';` to `import { LazyLoadImage } from 'react-lazy-load-image-component';`
+- [x] 2. Update JSX: Replace `<LazyLoad` with `<LazyLoadImage` in the image rendering section (same props)
+- [x] 3. Verify changes and test the component (run `npm run dev` if needed)

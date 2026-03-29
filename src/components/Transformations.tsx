@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import LazyLoad from 'react-lazy-load-image-component';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const transformations = [
@@ -50,8 +50,7 @@ export default function Transformations() {
               className={`group relative overflow-hidden rounded-3xl transition-all duration-700 cursor-pointer border border-white/5 hover:border-obigold-gold/30 
                 ${index === 0 ? 'lg:col-span-1 lg:row-span-2 h-[450px] lg:h-full' : 'h-[280px]'}`}
             >
-              {/* Lazy Load Image with Blur Effect */}
-              <LazyLoad
+              {/* Lazy Load Image with Blur Effect */}\n              <LazyLoadImage
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                 effect="blur"
                 width={item.img.split('w=')[1]?.split('&')[0] || '100%'}
