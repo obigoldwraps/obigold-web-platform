@@ -2,39 +2,44 @@ import React from 'react';
 
 import { ArrowRight } from 'lucide-react';
 import dodge from '../images/dodge.png';
+import c45tint from '../images/c450tint1.png';
+import gle63satin from '../images/gle63satin.png';
+import rx350blue from '../images/rx350blue.png';
+import camarogreen from '../images/camarogreen.png';
+
 
 const transformations = [
-  { 
-    vehicle: 'Mercedes-AMG GLE53', 
-    wrap: 'Satin Metallic Orange', 
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+  {
+    vehicle: 'Mercedes-AMG GLE53',
+    wrap: 'Satin Metallic Orange',
+    img: gle63satin,
     featured: true
   },
-  { 
-    vehicle: 'Lexus RX 350', 
-    wrap: 'Racing Blue Edition', 
-    img: 'https://images.unsplash.com/photo-1558618048-d480603e8684?auto=format&fit=crop&w=1000&q=80' 
+  {
+    vehicle: 'Lexus RX 350',
+    wrap: 'Racing Blue Edition',
+    img: rx350blue,
   },
-  { 
-    vehicle: 'Chevrolet Camaro', 
-    wrap: 'Viper Green', 
-    img: 'https://images.unsplash.com/photo-1571896349840-e26b311f6f5d?auto=format&fit=crop&w=1000&q=80' 
+  {
+    vehicle: 'Chevrolet Camaro',
+    wrap: 'Viper Green',
+    img: camarogreen,
   },
   // Add more for full gallery
-  { 
-    vehicle: 'Mercedes G63 Brabus', 
-    wrap: 'Cermamic Tint Edition', 
-    img: 'https://images.unsplash.com/photo-1583121274602-f18d006a54dd?auto=format&fit=crop&w=1000&q=80' 
+  {
+    vehicle: 'Mercedes G63 Brabus',
+    wrap: 'Cermamic Tint Edition',
+    img: 'https://images.unsplash.com/photo-1583121274602-f18d006a54dd?auto=format&fit=crop&w=1000&q=80'
   },
-  { 
-    vehicle: 'Mercedes C450 AMG', 
-    wrap: 'Headlight Tint', 
-    img: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=1000&q=80' 
+  {
+    vehicle: 'Mercedes C450 AMG',
+    wrap: 'Headlight Tint',
+    img: c45tint,
   },
-  { 
-    vehicle: 'Dodge Challenger', 
-    wrap: 'PPF + Ceramic', 
-    img: dodge, 
+  {
+    vehicle: 'Dodge Challenger',
+    wrap: 'PPF + Ceramic',
+    img: dodge,
   },
 ];
 
@@ -63,7 +68,7 @@ export default function Gallery() {
         {/* High-Perf Grid - Lazy Load, Hover Effects */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {transformations.map((item, index) => (
-            <div 
+            <div
               key={index}
               className="group relative overflow-hidden rounded-3xl transition-all duration-700 cursor-pointer border border-white/5 hover:border-obigold-gold/50 hover:shadow-[0_20px_40px_rgba(255,215,0,0.2)]"
               style={{ height: '350px' }}
@@ -91,14 +96,6 @@ export default function Gallery() {
                 </div>
               </div>
 
-              {/* Hover Play Overlay */}
-              <div className="absolute inset-0 z-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-                  <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-              </div>
             </div>
           ))}
         </div>

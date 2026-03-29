@@ -2,23 +2,26 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import gle63satin from '../images/gle63satin.png';
+import rx350blue from '../images/rx350blue.png';
+import camarogreen from '../images/camarogreen.png';
 
 const transformations = [
   { 
     vehicle: 'Mercedes-AMG GLE53', 
     wrap: 'Satin Metallic Orange', 
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+    img: gle63satin,
     featured: true
   },
   { 
     vehicle: 'Lexus RX 350', 
     wrap: 'Racing Blue Edition', 
-    img: 'https://images.unsplash.com/photo-1558618048-d480603e8684?auto=format&fit=crop&w=1000&q=80' 
+    img: rx350blue, 
   },
   { 
     vehicle: 'Chevrolet Camaro', 
     wrap: 'Viper Green', 
-    img: 'https://images.unsplash.com/photo-1571896349840-e26b311f6f5d?auto=format&fit=crop&w=1000&q=80' 
+    img: camarogreen,
   },
 ];
 
