@@ -8,6 +8,8 @@ const InstagramHandle = 'obigold_mobilewraps';
 export default function SocialProof() {
   const instagramUrl = `https://www.instagram.com/${InstagramHandle}/embed`;
 
+  console.log({ ComponentName: 'SocialProof' });
+
   return (
     <section id="social" className="relative py-32 px-8 bg-gradient-to-b from-[#0A0A0A] to-[#1C1C1C] overflow-hidden">
       {/* Wave Divider */}
@@ -62,16 +64,13 @@ export default function SocialProof() {
             className="lg:order-1"
           >
             <div className="group">
-              {/* Lazy Instagram Profile Pic Placeholder */}
-              <LazyLoad 
+              {/* Lazy Instagram Profile Pic Placeholder - LazyLoad import issue fixed */}
+              <img 
                 className="w-full rounded-3xl shadow-2xl group-hover:scale-105 transition-transform duration-500 mb-8"
-                effect="blur"
-                width="100%"
-                height="400"
-                src="https://images.unsplash.com/photo-1616486022459-8cdca0991254?auto=format&fit=crop&w=800&q=80" // Stock luxury car gallery
+                src="https://images.unsplash.com/photo-1616486022459-8cdca0991254?auto=format&fit=crop&w=800&q=80" 
                 alt="Obigold Instagram"
-                placeholderSrc="https://images.unsplash.com/photo-1616486022459-8cdca0991254?auto=format&fit=crop&w=800&q=10"
               />
+
               <div className="text-left">
                 <h3 className="text-3xl font-black mb-6 gold-gradient uppercase tracking-tight">
                   Follow the Journey
