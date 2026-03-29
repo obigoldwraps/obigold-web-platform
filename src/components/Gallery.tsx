@@ -28,7 +28,7 @@ const transformations = [
   // Add more for full gallery
   {
     vehicle: 'Mercedes G63 Brabus',
-    wrap: 'Cermamic Tint Edition',
+    wrap: 'Ceramic Tint Edition',
     img: 'https://images.unsplash.com/photo-1583121274602-f18d006a54dd?auto=format&fit=crop&w=1000&q=80'
   },
   {
