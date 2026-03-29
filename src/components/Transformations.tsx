@@ -59,15 +59,15 @@ export default function Transformations() {
   }, [selected]);
 
   return (
-    <section id="transformations" className="relative py-32 px-4 md:px-8 bg-[#0A0A0A] overflow-hidden">
+    <section id="transformations" className="relative py-20 px-4 md:px-8 bg-[#0A0A0A] overflow-hidden">  
 
-      {/* 1. TOP WAVE: Forced to the absolute top of the section */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-50">
+      {/* 1. TOP WAVE: Adjusted to overlap previous section, remove black stripe gap */}
+      <div className="absolute top-[-40px] left-0 w-full overflow-hidden leading-[0] z-50 md:top-[-60px]">
         <svg
           viewBox="0 0 1440 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="relative block w-[calc(100%+1.3px)] h-[60px] md:h-[100px]"
+          className="relative block w-[calc(100%+1.3px)] h-[80px] md:h-[140px]"
         >
           <path
             d="M0 100L60 90C120 80 240 60 360 50C480 40 600 40 720 45C840 50 960 60 1080 65C1200 70 1320 70 1380 70L1440 70V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V100Z"
@@ -78,7 +78,7 @@ export default function Transformations() {
 
       {/* 1. Header Added Back for context */}
       <div className="relative z-20 max-w-7xl mx-auto mb-20 text-center">
-        <h2 className="text-5xl md:text-6xl font-black mb-6 gold-gradient uppercase tracking-tighter">
+        <h2 className="text-5xl md:text-6xl font-black mb-6 gold-chrome-text uppercase tracking-tighter">
           TRANSFORMATIONS
         </h2>
         <p className="text-xl text-white/50 max-w-2xl mx-auto italic">
@@ -120,9 +120,9 @@ export default function Transformations() {
             </motion.div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent z-20" />
 
-            <div className="absolute inset-0 z-30 flex flex-col justify-end p-8">
+            <div className="absolute inset-0 z-20 flex flex-col justify-end p-8">
               <h4 className="text-2xl font-black text-white uppercase italic tracking-tighter">{item.vehicle}</h4>
-              <p className="text-[var(--secondary-gold)] font-bold uppercase text-xs tracking-widest">{item.wrap}</p>
+              <p className="text-obigold-gold-vibrant font-bold uppercase text-xs tracking-widest">{item.wrap}</p>
             </div>
           </motion.div>
         ))}

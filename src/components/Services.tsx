@@ -35,7 +35,7 @@ export default function Services() {
         
         {/* HEADING WITH MINIMAL MOTION EFFECT */}
         <div className="text-center mb-24 group cursor-default">
-          <h2 className="text-6xl font-black mb-6 text-gray-900 tracking-tighter uppercase transition-all duration-700 group-hover:tracking-[0.05em] group-hover:-translate-y-1">
+          <h2 className="text-6xl font-black mb-6 text-gray-900 tracking-tighter uppercase transition-all duration-700 group-hover:tracking-[0.05em] group-hover:-translate-y-0.5">
             PREMIUM SERVICES
           </h2>
           <div className="w-32 h-1 bg-[var(--secondary-gold)] mx-auto mb-12 transition-all duration-700 group-hover:w-48 group-hover:bg-yellow-500"></div>

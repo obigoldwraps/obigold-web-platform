@@ -8,12 +8,15 @@
   0% {
     transform: translateX(-100%) translateZ(0) scaleY(1) scaleX(1);
   }
+
   30% {
     transform: translateX(0%) translateZ(0) scaleY(1.05) scaleX(1.05);
   }
+
   60% {
     transform: translateX(100%) translateZ(0) scaleY(1) scaleX(1);
   }
+
   100% {
     transform: translateX(100%) translateZ(0) scaleY(1) scaleX(1);
   }
@@ -29,6 +32,7 @@
   --dark-card: #111;
   --gray-text: #A0A0A0;
   --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E8C547 50%, #FAD02C 100%);
+  --new-gradient-gold: linear-gradient(135deg, #fcca28 0%, #ddb72c 50%, #f5c813 100%);
   --secondary-gold: #E8C547;
 }
 
@@ -63,15 +67,28 @@ h6 {
   background-clip: text;
 }
 
+.newgold-gradient {
+  background: linear-gradient(to bottom,
+      #bf953f 0%,
+      #fcf6ba 20%,
+      #b38728 50%,
+      #fbf5b7 80%,
+      #aa771c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.3));
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
 .gold-chrome-text {
-  background: linear-gradient(
-    to bottom, 
-    #bf953f 0%,    
-    #fcf6ba 20%,   
-    #b38728 50%,   
-    #fbf5b7 80%,   
-    #aa771c 100%   
-  );
+  background: linear-gradient(to bottom,
+      #bf953f 0%,
+      #fcf6ba 20%,
+      #b38728 50%,
+      #fbf5b7 80%,
+      #aa771c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
