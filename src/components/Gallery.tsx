@@ -6,6 +6,7 @@ import c45tint from '../images/c450tint1.png';
 import gle63satin from '../images/gle63satin.png';
 import rx350blue from '../images/rx350blue.png';
 import camarogreen from '../images/camarogreen.png';
+import brabus from '../images/brabus.png';
 
 
 const transformations = [
@@ -29,7 +30,7 @@ const transformations = [
   {
     vehicle: 'Mercedes G63 Brabus',
     wrap: 'Ceramic Tint Edition',
-    img: 'https://images.unsplash.com/photo-1583121274602-f18d006a54dd?auto=format&fit=crop&w=1000&q=80'
+    img: brabus
   },
   {
     vehicle: 'Mercedes C450 AMG',
@@ -51,13 +52,13 @@ export default function Gallery() {
       {/* Top Wave Divider */}
       <div className="absolute top-0 left-0 right-0 leading-[0] -mt-[2px] z-10">
         <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto transform scale-y-[1.1] origin-top">
-          <path d="M0 100L60 90C120 80 240 60 360 50C480 40 600 40 720 45C840 50 960 60 1080 65C1200 70 1320 70 1380 70L1440 70V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V100Z" fill="white" />
+          <path d="M0 100L60 90C120 80 240 60 360 50C480 40 600 40 720 45C840 50 960 60 1080 65C1200 70 1320 70 1380 70L1440 70V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V100Z" fill="#0A0A0A" />
         </svg>
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 gold-gradient uppercase tracking-tighter">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 newgold-gradient uppercase tracking-tighter">
             FULL GALLERY
           </h2>
           <p className="text-xl text-white/50 max-w-2xl mx-auto">

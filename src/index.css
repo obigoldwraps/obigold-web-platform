@@ -69,17 +69,15 @@ h6 {
 
 .newgold-gradient {
   background: linear-gradient(to bottom,
-      #bf953f 0%,
-      #fcf6ba 20%,
-      #b38728 50%,
-      #fbf5b7 80%,
-      #aa771c 100%);
+      #ffffff 0%,
+      #f3f3f3 20%,
+      #dfdfdf 50%,
+      #acacac 80%,
+      #2c2c2c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
-  filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.3));
-  transition: filter 0.5s ease, transform 0.5s ease;
 }
 
 .gold-chrome-text {
