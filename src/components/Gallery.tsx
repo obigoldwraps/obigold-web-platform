@@ -1,43 +1,46 @@
 import React from 'react';
-import LazyLoad from 'react-lazy-load-image-component';
+
 import { ArrowRight } from 'lucide-react';
+import dodge from '../images/dodge.png';
 
 const transformations = [
   { 
-    vehicle: 'Porsche Panamera', 
-    wrap: 'Matte Stealth Edition', 
+    vehicle: 'Mercedes-AMG GLE53', 
+    wrap: 'Satin Metallic Orange', 
     img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     featured: true
   },
   { 
-    vehicle: 'Mercedes GLS', 
-    wrap: 'Matte Stealth Edition', 
+    vehicle: 'Lexus RX 350', 
+    wrap: 'Racing Blue Edition', 
     img: 'https://images.unsplash.com/photo-1558618048-d480603e8684?auto=format&fit=crop&w=1000&q=80' 
   },
   { 
-    vehicle: 'AMG GT-C', 
-    wrap: 'Frozen Dark Grey', 
+    vehicle: 'Chevrolet Camaro', 
+    wrap: 'Viper Green', 
     img: 'https://images.unsplash.com/photo-1571896349840-e26b311f6f5d?auto=format&fit=crop&w=1000&q=80' 
   },
   // Add more for full gallery
   { 
-    vehicle: 'Lamborghini Huracan', 
-    wrap: 'Chrome Delete', 
+    vehicle: 'Mercedes G63 Brabus', 
+    wrap: 'Cermamic Tint Edition', 
     img: 'https://images.unsplash.com/photo-1583121274602-f18d006a54dd?auto=format&fit=crop&w=1000&q=80' 
   },
   { 
-    vehicle: 'Range Rover', 
-    wrap: 'Satin Pearl White', 
+    vehicle: 'Mercedes C450 AMG', 
+    wrap: 'Headlight Tint', 
     img: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=1000&q=80' 
   },
   { 
-    vehicle: 'BMW M8', 
+    vehicle: 'Dodge Challenger', 
     wrap: 'PPF + Ceramic', 
-    img: 'https://images.unsplash.com/photo-1583121274601-d28cafe7bb69?auto=format&fit=crop&w=1000&q=80' 
+    img: dodge, 
   },
 ];
 
 export default function Gallery() {
+  console.log({ ComponentName: 'Gallery' });
+
   return (
     <section id="gallery" className="relative py-32 px-4 md:px-8 bg-[#0A0A0A] overflow-hidden">
       {/* Top Wave Divider */}
@@ -67,12 +70,10 @@ export default function Gallery() {
             >
               {/* Lazy Video/Image (Hover Play Simulation) */}
               <div className="absolute inset-0 group-hover:bg-[radial-gradient(circle,rgba(255,215,0,0.1)_0%,transparent_70%)] transition-all duration-500" />
-              <LazyLoad
-                effect="blur"
+              <img
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-100 group-hover:brightness-110"
                 src={item.img.replace('q=80', 'q=90')}
                 alt={item.vehicle}
-                placeholderSrc={item.img + '&q=10'}
               />
 
               {/* Gradient */}

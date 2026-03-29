@@ -1,12 +1,23 @@
-import React from 'react';
-import LazyLoad from 'react-lazy-load-image-component';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const InstagramHandle = 'obigold_mobilewraps';
 
 export default function SocialProof() {
-  const instagramUrl = `https://www.instagram.com/${InstagramHandle}/embed`;
+  const taggboxRef = useRef(null);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://widget.taggbox.com/embed.min.js';
+    script.async = true;
+    script.type = 'text/javascript';
+    taggboxRef.current?.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   console.log({ ComponentName: 'SocialProof' });
 
@@ -41,19 +52,12 @@ export default function SocialProof() {
             className="lg:order-2"
           >
             <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-4 lg:p-8 shadow-2xl">
-              <iframe 
-                className="w-full aspect-video rounded-2xl shadow-xl"
-                src={`https://www.instagram.com/p/C_recent_post/embed`} // Replace with latest post or use widget
-                frameBorder="0"
-                scrolling="no"
-                allowTransparency="true"
-                title="Instagram Feed"
+              <div 
+                ref={taggboxRef}
+                className="taggbox w-full aspect-[4/3] rounded-2xl overflow-auto" 
+                data-widget-id="321276" 
+                data-website="1"
               />
-              {/* Fallback Embed Script - User can replace */}
-              <div className="mt-4 text-center">
-                <Instagram className="w-12 h-12 text-[var(--secondary-gold)] mx-auto mb-4" />
-                <p className="text-sm text-white/70">@obigold_mobilewraps</p>
-              </div>
             </div>
           </motion.div>
 

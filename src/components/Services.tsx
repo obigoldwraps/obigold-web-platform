@@ -1,5 +1,8 @@
 import React from 'react';
 import { Check, Palette, Shield, CarFront } from 'lucide-react';
+import paintpro from '../images/paint_pro.png';
+import colourchange from '../images/colour_change.png';
+import ceramic from '../images/ceramic.png';
 
 const serviceData = [
   {
@@ -7,21 +10,21 @@ const serviceData = [
     desc: "Over 1,000 premium vinyl films from 3M and Avery. Matte, satin, and chrome specialty finishes.",
     features: ["Full vehicle coverage", "Multi-layer designs"],
     icon: Palette,
-    img: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=800&q=80"
+    img: colourchange,
   },
   {
     title: "PAINT PROTECTION",
     desc: "Self-healing PPF that safeguards your OEM paint while remaining completely invisible.",
     features: ["XPEL Ultimate Plus", "Track proven durability"],
     icon: Shield,
-    img: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=800&q=80"
+    img: paintpro,
   },
   {
     title: "CERAMIC COATING",
     desc: "9H coatings with unmatched hydrophobicity, UV protection, and mirror-like gloss.",
     features: ["5+ Year Warranty", "Mirror-like shine"],
     icon: CarFront,
-    img: "https://images.unsplash.com/photo-1599256621730-53517128e28e?auto=format&fit=crop&w=800&q=80"
+    img: ceramic,
   }
 ];
 
@@ -49,7 +52,7 @@ export default function Services() {
               <img 
                 src={service.img}
                 alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000 z-0"
+                className="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:scale-110 transition-transform duration-1000 z-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>
 

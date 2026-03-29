@@ -1,127 +1,210 @@
-import React from 'react';
-import CompareImage from 'react-compare-image';
-import { ChevronDown, Phone, Calendar } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { ChevronDown, Calendar } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// Assets
+import gle63white from '../images/gle63_white.png';
+import gle63purple from '../images/gle63_purple.png';
 
 interface HeroProps {
   openModal?: () => void;
 }
 
 export default function Hero({ openModal }: HeroProps) {
-  // Stock images (same angle luxury cars for demo)
-  const beforeImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80';
-  const afterImage = 'https://images.unsplash.com/photo-1558618048-d480603e8684?auto=format&fit=crop&w=1920&q=80';
+  const [currentImage, setCurrentImage] = useState(0);
+  const images = [gle63white, gle63purple];
+
+  // Auto-slide logic: toggles every 4 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev === 0 ? 1 : 0));
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <section 
-      id="home" 
-      className="relative min-h-[120vh] flex items-center justify-center text-center overflow-hidden pt-20"
+    <section
+      id="home"
+      className="relative min-h-screen lg:min-h-[120vh] flex flex-col items-center justify-start text-center overflow-hidden pt-20 bg-black"
     >
-      {/* Vignette Overlay (dark edges, center bright) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-black/40 
-                      bg-gradient-to-b from-black/40 via-transparent to-black/40 z-10" />
+      {/* 1. Background Vignettes */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80 z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/90 z-10 pointer-events-none" />
 
-      {/* Hero Background Image (Before/After simulation via overlay) */}
-      <div className="relative z-20 w-full max-w-6xl mx-auto px-6 h-[70vh] md:h-[80vh] max-h-[600px] rounded-3xl overflow-hidden shadow-2xl ring-4 ring-black/20">
-        <img 
-          src={afterImage}
-          alt="Obigold Wrapped Vehicle"
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/30 to-transparent" />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-4 bg-[var(--secondary-gold)] rounded-full shadow-xl" />
-      </div>
-
-      {/* Hero Text Overlay */}
-      <div className="absolute z-30 top-24 left-1/2 -translate-x-1/2 md:top-32 max-w-4xl mx-auto px-6">
-        <motion.h1 
+      {/* 2. Hero Text Overlay */}
+      <div className="relative z-30 mt-10 md:mt-16 max-w-4xl mx-auto px-6 pointer-events-none">
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="leading-none tracking-tighter select-none"
         >
-          <span className="block text-3xl lg:text-4xl xl:text-5xl font-extralight text-white/80 mb-2 uppercase tracking-[0.3em]">
+          <span className="block text-2xl md:text-4xl font-extralight text-white/80 mb-2 uppercase tracking-[0.3em]">
             Wrap Your
           </span>
-          <span 
-            className="gold-chrome-text block text-[4rem] lg:text-6xl xl:text-7xl font-bold uppercase leading-[0.8] tracking-[-0.03em]"
+          <span
+            className="gold-chrome-text block text-[3.5rem] md:text-7xl lg:text-8xl font-bold uppercase leading-[0.8] tracking-[-0.03em]"
             style={{ fontFamily: "'Syncopate', sans-serif" }}
           >
             POWER
           </span>
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg lg:text-xl text-white/90 mt-4 max-w-2xl mx-auto leading-relaxed"
+          className="text-base md:text-xl text-white/90 mt-6 max-w-xl mx-auto leading-relaxed"
         >
-          Experience the Obigold difference - premium wraps that transform ordinary vehicles into extraordinary statements.
+          Premium car wraps, detailing, and custom finishes that turn your vehicle into a head-turning statement of luxury.
         </motion.p>
       </div>
 
-      {/* CTAs */}
-      <div className="absolute z-30 bottom-20 left-1/2 -translate-x-1/2 flex flex-col lg:flex-row gap-6">
-        <motion.button 
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3, delay: 0.4 }}
-          type="button"
-          onClick={openModal}
-          className="group relative overflow-hidden px-12 py-6 rounded-xl font-bold text-xl tracking-wider bg-[var(--secondary-gold)] text-black transition-all duration-500 flex items-center gap-3 justify-center"
-        >
-          <span className="relative z-10">Book Your Wrap</span>
-          <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform relative z-10" fill="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} stroke="currentColor" d="m17 8-3 3-3-3" />
-          </svg>
-          <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-25 bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
-        </motion.button>
+      {/* 3. The Slideshow Container */}
+      <div className="relative z-20 w-full max-w-6xl mx-auto px-4 md:px-6 mt-10 shadow-2xl">
+        <div className="relative aspect-[21/9] w-full rounded-3xl overflow-hidden ring-1 ring-white/10 bg-neutral-900">
 
-        <motion.button 
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 0.3, delay: 0.5 }}
-          className="border-2 border-[var(--secondary-gold)] text-[var(--secondary-gold)] px-12 py-6 rounded-xl font-bold text-xl hover:bg-[var(--secondary-gold)] hover:text-black backdrop-blur-sm hover:shadow-2xl transition-all duration-500 card-hover"
-        >
-          VIEW GALLERY
-        </motion.button>
+          {/* Base Image (The 'Before' always sits underneath) */}
+          <img
+            src={gle63white}
+            alt="Original White"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+
+          {/* The 'After' Image (The 'Wrap' that wipes over the top) */}
+          <AnimatePresence>
+            {currentImage === 1 && (
+              <motion.img
+                key="purple-wrap"
+                src={gle63purple}
+                initial={{ clipPath: 'inset(0 100% 0 0)' }} // Fully hidden to the right
+                animate={{ clipPath: 'inset(0 0% 0 0)' }}   // Wipes to cover fully
+                exit={{ clipPath: 'inset(0 100% 0 0)' }}    // Wipes back to hide
+                transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
+                alt="Purple Wrap Transformation"
+                className="absolute inset-0 w-full h-full object-cover z-10"
+              />
+            )}
+          </AnimatePresence>
+
+          {/* Optional: A gold 'leading edge' line to make it look like a blade is cutting the wrap */}
+          <AnimatePresence>
+            {currentImage === 1 && (
+              <motion.div
+                initial={{ left: '0%' }}
+                animate={{ left: '100%' }}
+                exit={{ left: '0%' }}
+                transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
+                className="absolute top-0 bottom-0 w-1 bg-[var(--secondary-gold)] z-20 shadow-[0_0_15px_rgba(212,175,55,0.8)]"
+                style={{ transform: 'translateX(-100%)' }}
+              />
+            )}
+          </AnimatePresence>
+
+          {/* Labels */}
+          <div className="absolute top-6 left-8 z-30 pointer-events-none">
+            <motion.div
+              key={currentImage}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-black/40 backdrop-blur-md border border-white/10 px-4 py-2 rounded-lg"
+            >
+              <span className="text-[var(--secondary-gold)] font-bold tracking-widest text-xs uppercase">
+                {currentImage === 0 ? 'Factory Finish' : 'Obigold Custom Wrap'}
+              </span>
+            </motion.div>
+          </div>
+        </div>
       </div>
 
-      {/* Stats Grid */}
-      <div className="absolute z-30 bottom-28 lg:bottom-32 left-1/2 -translate-x-1/2 grid grid-cols-3 gap-8 text-center border-t border-[var(--primary-gold)]/20 pt-8 px-6 max-w-4xl w-full">
-        {[
-          { num: '100+', label: 'Vehicles Wrapped' },
-          { num: '12+', label: 'Years Experience' },
-          { num: '5yr', label: 'Warranty' }
-        ].map((stat, i) => (
-          <motion.div 
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 + i * 0.1 }}
-            className="group"
+      {/* 4. Action Area (Buttons & Stats) */}
+      <div className="relative z-30 mt-16 pb-20 flex flex-col items-center gap-12 w-full max-w-5xl px-6">
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 w-full justify-center items-center">
+          <motion.button
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 0 25px rgba(212, 175, 55, 0.4)" // Soft outer glow on hover
+            }}
+            whileTap={{ scale: 0.98 }}
+            onClick={openModal}
+            className="group relative overflow-hidden px-10 py-5 rounded-xl font-bold text-lg tracking-wider bg-[var(--secondary-gold)] text-black transition-all flex items-center gap-3 shadow-[0_0_15px_rgba(212,175,55,0.2)]"
           >
-            <div className="text-4xl lg:text-5xl font-black gold-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
-              {stat.num}
-            </div>
-            <div className="text-base text-white/70 font-medium tracking-wide uppercase text-sm">
-              {stat.label}
-            </div>
-          </motion.div>
-        ))}
+            {/* 1. Internal "Shine" Overlay (The sweep effect) */}
+            <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-25 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
+
+            {/* 2. Pulsing Ambience Layer (Behind the text) */}
+            <motion.div
+              animate={{
+                opacity: [0.3, 0.6, 0.3],
+                scale: [1, 1.05, 1]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent pointer-events-none"
+            />
+
+            {/* 3. Button Content */}
+            <Calendar size={20} className="relative z-10" />
+            <span className="relative z-10 uppercase">BOOK YOUR WRAP</span>
+
+            {/* 4. Bottom Border Highlight (Metallic Edge) */}
+            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-obigold-gold-vibrant/30" />
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            className="border-2 border-[var(--secondary-gold)]/50 text-[var(--secondary-gold)] px-10 py-5 rounded-xl font-bold text-lg hover:bg-[var(--secondary-gold)] border-[var(--secondary-gold)] hover:text-black transition-all duration-300"
+          >
+            VIEW GALLERY
+          </motion.button>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-center border-t border-white/10 pt-12 w-full">
+          {[
+            { num: '100+', label: 'Vehicles Wrapped' },
+            { num: '12+', label: 'Years Experience' },
+            { num: '5yr', label: 'Warranty' }
+          ].map((stat, i) => (
+            <motion.div
+              key={i}
+              // Hover Animation
+              whileHover={{ y: -10 }} // Lifts the whole stat up
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="flex flex-col items-center group cursor-default"
+            >
+              {/* The Number - Adds a glow effect on hover */}
+              <motion.div
+                className="text-4xl lg:text-5xl font-black gold-gradient transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)]"
+              >
+                {stat.num}
+              </motion.div>
+
+              {/* The Label - Changes color/opacity on hover */}
+              <motion.div
+                className="text-xs text-white/50 font-bold tracking-widest uppercase mt-2 transition-colors duration-300 group-hover:text-white"
+              >
+                {stat.label}
+              </motion.div>
+
+              {/* Decorative underline that expands on hover */}
+              <div className="w-0 h-[1px] bg-[var(--secondary-gold)] mt-2 transition-all duration-500 group-hover:w-12" />
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 0.6, y: 0 }}
-        transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none opacity-40"
       >
-        <ChevronDown className="w-8 h-8 text-white/60 hover:text-white transition-all duration-300 cursor-pointer" size={32} strokeWidth={2} />
+        <ChevronDown size={32} className="text-white" />
       </motion.div>
     </section>
   );
