@@ -11,7 +11,36 @@ export default function Contact() {
             </div>
 
             <div className="max-w-7xl mx-auto text-center relative z-20">
-                <h2 className="text-6xl font-black mb-8 uppercase tracking-tighter">READY TO <br className="md:hidden" /> TRANSFORM?</h2>
+                <div className="max-w-7xl mx-auto text-center relative z-20 px-4">
+                    <h2 className="text-[42px] leading-[1] md:text-6xl lg:text-7xl font-black mb-8 uppercase tracking-tighter">
+                        {/* By using a block span on mobile, we force the break precisely */}
+                        <span className="block md:inline">Ready to</span>{" "}
+                        <span
+                            className="block md:inline uppercase"
+                            style={{
+                                display: 'inline-block',
+                                /* 1. The metallic gradient */
+                                background: 'linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+
+                                /* 2. THE FIX: Clipping must come AFTER the background */
+                                WebkitBackgroundClip: 'text',
+                                backgroundClip: 'text',
+
+                                /* 3. Make the internal text invisible so the background shows through */
+                                WebkitTextFillColor: 'transparent',
+                                color: 'transparent',
+
+                                /* 4. The Sharp Stroke */
+                                WebkitTextStroke: '1.2px #000000',
+
+                                /* 5. Prevent the 'box' from showing */
+                                backgroundColor: 'transparent'
+                            }}
+                        >
+                            Transform?
+                        </span>
+                    </h2>
+                </div>
                 <p className="text-2xl mb-12 opacity-90 max-w-2xl mx-auto">
                     Your dream wrap is one consultation away. Schedule today and see your vision come to life.
                 </p>
@@ -28,7 +57,7 @@ export default function Contact() {
                             <div className="opacity-90 text-sm uppercase tracking-widest font-semibold mt-1">Call Now</div>
                         </div>
                         {/* Moving Shine Effect */}
-                        <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
+                        <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/80 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
                     </a>
 
                     {/* 2. BOOK NOW - Remains Premium Dark */}

@@ -92,12 +92,14 @@ export default function SocialProof() {
                   rel="noopener noreferrer"
                   className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 bg-obigold-gold-vibrant text-black px-8 py-4 rounded-2xl font-black text-xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,215,0,0.4)]"
                 >
-                  <span className="relative z-10 uppercase tracking-tighter flex items-center gap-1.5 md:gap-2 text-[15px] md:text-xl">
-                    <Instagram className="w-5 h-5 md:w-6 md:h-6" />
-                    <span className="whitespace-nowrap">Follow @{InstagramHandle}</span>
-                  </span>
-                  <ArrowRight className="relative z-10 w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                  <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
+                  <div className="flex items-center -ml-3 md:ml-0">
+                    <span className="relative z-10 uppercase tracking-tighter flex items-center gap-1.5 md:gap-2 text-[15px] md:text-xl">
+                      <Instagram className="w-4 h-5 md:w-6 md:h-6" />
+                      <span className="whitespace-nowrap">Follow @{InstagramHandle}</span>
+                    </span>
+                    <ArrowRight className="relative z-10 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                    <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
+                  </div>
                 </a>
               </div>
             </div>

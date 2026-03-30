@@ -145,7 +145,7 @@ export default function Hero({ openModal }: HeroProps) {
               onClick={openModal}
               className="group relative overflow-hidden px-10 py-5 rounded-xl font-black text-lg tracking-widest bg-[var(--secondary-gold)] text-black flex items-center gap-3 shadow-xl"
             >
-              <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
+              <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
               <Calendar size={20} className="relative z-10" />
               <span className="relative z-10">BOOK YOUR WRAP</span>
             </motion.button>
