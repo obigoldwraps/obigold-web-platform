@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react'; // Added useEffect
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom'; // 1. Import Link
 import GalleryModal from './GalleryModal';
 
 import dodge from '../images/dodge.png';
@@ -106,7 +107,6 @@ export default function GalleryFull({ openModal }: GalleryFullProps) {
             </p>
           </div>
 
-          <!-- Grid -->
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {transformations.map((item, index) => (
               <div
@@ -136,7 +136,6 @@ export default function GalleryFull({ openModal }: GalleryFullProps) {
             ))}
           </div>
 
-          <!-- Back to Home -->
           <div className="flex justify-center mt-24">
             <a
               href="/"

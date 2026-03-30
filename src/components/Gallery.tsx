@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { ArrowRight } from 'lucide-react';
 import dodge from '../images/dodge.png';
@@ -105,15 +106,14 @@ export default function Gallery() {
         <div className="flex justify-center md:justify-center mt-24">
           {/* 1. Changed 'items-center' to 'justify-center' to control the button's position better */}
 
-          <a
-            href="#"
+
+          <Link
+            to="/gallery"
             className="group relative inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-obigold-gold to-obigold-gold-vibrant text-obigold-black 
                px-8 py-6 md:px-16 md:py-8 
                -ml-4 md:ml-0
                rounded-3xl font-black text-lg md:text-2xl shadow-2xl overflow-hidden transition-all duration-500 hover:scale-110 hover:shadow-[0_0_60px_rgba(255,215,0,0.5)]"
           >
-            {/* 2. Reduced padding (px-8) and font size (text-lg) on mobile so it actually fits 360px */}
-
             <span className="relative z-10 uppercase tracking-tighter whitespace-nowrap">
               Load More Transformations
             </span>
@@ -121,7 +121,8 @@ export default function Gallery() {
             <ArrowRight className="relative z-10 w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-3 transition-transform duration-300" />
 
             <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
-          </a>
+          </Link>
+
         </div>
       </div>
     </section >

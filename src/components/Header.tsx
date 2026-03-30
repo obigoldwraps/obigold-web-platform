@@ -41,6 +41,22 @@ export default function Header({ openModal }: HeaderProps) {
         <button onClick={toggleMenu} className="lg:hidden">
           <Menu className="w-6 h-6 text-[var(--primary-gold)]" />
         </button>
+
+        {isOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full bg-[var(--dark-bg)]/95 backdrop-blur-md border-t border-gray-800 py-6 px-6 shadow-2xl">
+            <Link to="/#services" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Services</Link>
+            <Link to="/gallery" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Gallery</Link>
+            <Link to="/#about" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</Link>
+            <Link to="/#contact" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Contact</Link>
+            <div className="border-t border-gray-700 mt-4 pt-4 flex items-center gap-3">
+              <button onClick={() => {openModal?.(); setIsOpen(false);}} className="flex-1 bg-[var(--secondary-gold)] text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition-all text-sm">Free Quote</button>
+              <a href="tel:+15551234567" className="text-sm font-medium hover:text-[var(--primary-gold)] transition-all flex items-center gap-2 p-2">
+                <Phone className="w-4 h-4" />
+                Call
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
