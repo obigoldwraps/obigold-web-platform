@@ -5,7 +5,15 @@ import colourchange from '../images/colour_change.png';
 import ceramic from '../images/ceramic.png';
 import c45tint from '../images/c450tint1.png';
 
-const serviceData = [
+interface Service {
+  title: string;
+  desc: string;
+  features: string[];
+  icon: React.ComponentType<{ className?: string }>;
+  img: string;
+}
+
+const serviceData: Service[] = [
   {
     title: "PAINT PROTECTION FILM",
     desc: "Self-healing PPF that safeguards your OEM paint while remaining completely invisible.",
@@ -43,7 +51,63 @@ const serviceData = [
   }
 ];
 
-export default function Services() {
+interface ServicesProps {
+  allServices?: boolean;
+  simpleDesign?: boolean;
+  linkToServices?: boolean;
+}
+
+export default function Services({ allServices = false, simpleDesign = false, linkToServices = false }: ServicesProps) {
+  const services = allServices ? serviceData : serviceData.slice(0, 3);
+
+  if (simpleDesign) {
+    // Stacked design for services page: images above text
+    return (
+      <section id="services" className="py-32 px-8 bg-white text-black overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          {/* HEADING */}
+          <div className="text-center mb-16 md:mb-24 group cursor-default px-4">
+            <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tighter uppercase transition-all duration-700 group-hover:tracking-normal md:group-hover:tracking-[0.05em] group-hover:-translate-y-0.5 break-words">
+              PREMIUM SERVICES
+            </h2>
+            <div className="w-32 h-1 bg-[var(--secondary-gold)] mx-auto mb-12 transition-all duration-700 group-hover:w-48 group-hover:bg-yellow-500"></div>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto opacity-80">
+              Every vehicle is unique. Our master installers craft bespoke solutions with precision and artistry.
+            </p>
+          </div>
+
+          {/* Images Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-20">
+            {services.map((service, index) => (
+              <div key={index} className="group relative overflow-hidden rounded-3xl shadow-2xl aspect-video">
+                <img
+                  src={service.img}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Text Below */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+            {services.map((service, index) => (
+              <div key={index} className="space-y-4">
+                <h3 className="text-2xl md:text-3xl font-black text-gray-900 italic tracking-tighter">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-lg">
+                  {service.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Original overlay card design for homepage
   return (
     <section id="services" className="py-32 px-8 bg-white text-black overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -59,8 +123,8 @@ export default function Services() {
           </p>
         </div>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {serviceData.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
             <div key={index} className="group relative overflow-hidden rounded-3xl bg-black min-h-[550px] flex flex-col justify-end p-8 shadow-2xl transition-all duration-500">
 
               {/* Background Image */}
@@ -94,8 +158,11 @@ export default function Services() {
                   ))}
                 </ul>
 
-                {/* Button stays consistent with secondary-gold */}
-                <a href="#" className="inline-block w-full text-center bg-[var(--secondary-gold)] text-black py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-yellow-400 hover:scale-[1.02] transition-all duration-300 shadow-xl">
+                {/* Button */}
+                <a 
+                  href={linkToServices ? "/services" : "#"} 
+                  className="inline-block w-full text-center bg-[var(--secondary-gold)] text-black py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-yellow-400 hover:scale-[1.02] transition-all duration-300 shadow-xl"
+                >
                   Learn More
                 </a>
               </div>

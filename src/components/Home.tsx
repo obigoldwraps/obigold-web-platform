@@ -18,7 +18,7 @@ export default function Home() {
     <div className="min-h-screen bg-[var(--dark-bg)]">
       <Header openModal={() => setIsModalOpen(true)} />
       <Hero openModal={() => setIsModalOpen(true)} />
-      <Services />
+      <Services linkToServices={true} />
       <Transformations />
       <SocialProof />
       <Gallery />
@@ -29,4 +29,3 @@ export default function Home() {
     </div>
   );
 }
-

@@ -1,20 +1,20 @@
-# Services Page Task
+# Services Update TODO
 
-**Goal:** Create /services route with detailed services: Paint Protection Film, Colour Change (full/partial), Ceramic Coating, Tints, Chrome Delete.
+## Plan Steps (Approved)
 
-## Step 1: Expand src/components/Services.tsx to 5 services ✓
-- [x] Added Tints, Chrome Delete + adjusted grid
+✅ **Step 0**: Create this TODO_SERVICES.md to track progress.
 
-## Step 2: Create src/components/ServicesPage.tsx ✓
-- [x] Header + Services + Footer + BookingModal
+✅ **Step 1**: Update `src/components/Services.tsx` - Add props (`allServices?: boolean, simpleDesign?: boolean, linkToServices?: boolean`), logic for filtering services (slice(0,3) if !allServices), conditional rendering (current overlay if !simpleDesign, new stacked image+text if simpleDesign), update button href if linkToServices. **COMPLETE**
 
-## Step 3: Update src/App.tsx ✓
-- [x] Added Route /services, import ServicesPage
+**Step 2**: Update `src/components/Home.tsx` - Change `<Services />` to `<Services linkToServices={true} />`. **COMPLETE**
 
-## Step 4: Update src/components/Header.tsx ✓
-- [x] Changed Services Links /#services → /services (desktop/mobile)
+**Step 3**: Update `src/components/ServicesPage.tsx` - Change `<Services />` to `<Services allServices={true} simpleDesign={true} />`. **COMPLETE**
 
-## Step 5: Test
-- [ ] Check http://localhost:5178/services (server running)
+✅ **Step 4**: Verify routing in `src/App.tsx` for `/services` - Confirmed route exists. **COMPLETE**
 
-## Step 6: Complete
+✅ **Step 5**: Files updated. Test with `npm run dev`: Homepage shows 3 services (original overlay cards, Learn More links to /services), Services page shows 5 services (stacked images grid above text blocks).
+
+**Step 6**: attempt_completion.
+
+Current progress: Steps 0-5 complete.
+
