@@ -3,28 +3,43 @@ import { Check, Palette, Shield, CarFront } from 'lucide-react';
 import paintpro from '../images/paint_pro.png';
 import colourchange from '../images/colour_change.png';
 import ceramic from '../images/ceramic.png';
+import c45tint from '../images/c450tint1.png';
 
 const serviceData = [
   {
-    title: "COLOR CHANGE",
-    desc: "Over 1,000 premium vinyl films from 3M and Avery. Matte, satin, and chrome specialty finishes.",
-    features: ["Full vehicle coverage", "Multi-layer designs"],
-    icon: Palette,
-    img: colourchange,
-  },
-  {
-    title: "PAINT PROTECTION",
+    title: "PAINT PROTECTION FILM",
     desc: "Self-healing PPF that safeguards your OEM paint while remaining completely invisible.",
-    features: ["XPEL Ultimate Plus", "Track proven durability"],
+    features: ["XPEL Ultimate Plus", "Track proven durability", "Full or partial coverage", "5+ year warranty"],
     icon: Shield,
     img: paintpro,
   },
   {
+    title: "COLOR CHANGE",
+    desc: "Over 1,000 premium vinyl films from 3M and Avery. Full or partial vehicle transformations.",
+    features: ["Full vehicle coverage", "Partial accents & roofs", "Matte, satin, chrome finishes", "Multi-layer designs"],
+    icon: Palette,
+    img: colourchange,
+  },
+  {
     title: "CERAMIC COATING",
     desc: "9H coatings with unmatched hydrophobicity, UV protection, and mirror-like gloss.",
-    features: ["5+ Year Warranty", "Mirror-like shine"],
+    features: ["5+ Year Warranty", "Mirror-like shine", "Hydrophobic protection", "UV & chemical resistance"],
     icon: CarFront,
     img: ceramic,
+  },
+  {
+    title: "WINDOW TINTS",
+    desc: "Precision ceramic tints for ultimate heat rejection, privacy, and style.",
+    features: ["Ceramic nano-film", "Lifetime warranty", "Perfect UTT cut", "Legal VLT compliance"],
+    icon: Check,
+    img: c45tint,
+  },
+  {
+    title: "CHROME DELETE",
+    desc: "Remove distracting chrome trim with matte black vinyl for stealth appearance.",
+    features: ["Precision cut vinyl", "OEM-like finish", "Easy removal", "Matches any color scheme"],
+    icon: Check,
+    img: colourchange, // reuse
   }
 ];
 
@@ -44,7 +59,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceData.map((service, index) => (
             <div key={index} className="group relative overflow-hidden rounded-3xl bg-black min-h-[550px] flex flex-col justify-end p-8 shadow-2xl transition-all duration-500">
 

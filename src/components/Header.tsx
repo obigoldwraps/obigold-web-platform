@@ -23,7 +23,7 @@ export default function Header({ openModal }: HeaderProps) {
         </Link>
 
         <div className="hidden lg:flex items-center gap-12">
-<Link to="/#services" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Services</Link>
+<Link to="/services" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Services</Link>
 <Link to="/gallery" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Gallery</Link>
 <Link to="/#about" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</Link>
 <Link to="/#contact" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Contact</Link>
@@ -44,7 +44,7 @@ export default function Header({ openModal }: HeaderProps) {
 
         {isOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-[var(--dark-bg)]/95 backdrop-blur-md border-t border-gray-800 py-6 px-6 shadow-2xl">
-            <Link to="/#services" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Services</Link>
+<Link to="/services" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Services</Link>
             <Link to="/gallery" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Gallery</Link>
             <Link to="/#about" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</Link>
             <Link to="/#contact" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Contact</Link>
