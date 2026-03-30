@@ -61,13 +61,12 @@ export default function Services({ allServices = false, simpleDesign = false, li
   const services = allServices ? serviceData : serviceData.slice(0, 3);
 
   if (simpleDesign) {
-    // Stacked design for services page: images above text
     return (
-      <section id="services" className="py-32 px-8 bg-white text-black overflow-hidden">
+      <section id="services" className="py-24 md:py-32 px-4 md:px-8 bg-white text-black overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
-          <div className="text-center mb-16 md:mb-24 group cursor-default px-4">
-            <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tighter uppercase transition-all duration-700 group-hover:tracking-normal md:group-hover:tracking-[0.05em] group-hover:-translate-y-0.5 break-words">
+          <div className="text-center mb-16 md:mb-24 group cursor-default">
+            <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tighter uppercase transition-all duration-700">
               PREMIUM SERVICES
             </h2>
             <div className="w-32 h-1 bg-[var(--secondary-gold)] mx-auto mb-12 transition-all duration-700 group-hover:w-48 group-hover:bg-yellow-500"></div>
@@ -76,29 +75,35 @@ export default function Services({ allServices = false, simpleDesign = false, li
             </p>
           </div>
 
-          {/* Images Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-20">
+          {/* Unified Grid: Image + Text inside the same card */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-3xl shadow-2xl aspect-video">
-                <img
-                  src={service.img}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-            ))}
-          </div>
+              <div
+                key={index}
+                /* bg-[#FFD700]/5 is the secret: 5% opacity gold */
+                className="group flex flex-col p-6 rounded-3xl transition-all duration-500 
+                 bg-[#FFD700]/20 border border-[#FFD700]/20 
+                 hover:bg-[#FFD700]/10 hover:border-[#FFD700]/40 
+                 hover:shadow-[0_20px_50px_rgba(212,175,55,0.1)]"
+              >
+                <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-8">
+                  <img
+                    src={service.img}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
 
-          {/* Text Below */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="space-y-4">
-                <h3 className="text-2xl md:text-3xl font-black text-gray-900 italic tracking-tighter">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {service.desc}
-                </p>
+                {/* Text Content */}
+                <div className="space-y-4">
+                  <h3 className="text-3xl font-black text-gray-900 italic tracking-tighter uppercase leading-none">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    {service.desc}
+                  </p>
+                </div>
+
               </div>
             ))}
           </div>
@@ -159,8 +164,8 @@ export default function Services({ allServices = false, simpleDesign = false, li
                 </ul>
 
                 {/* Button */}
-                <a 
-                  href={linkToServices ? "/services" : "#"} 
+                <a
+                  href={linkToServices ? "/services" : "#"}
                   className="inline-block w-full text-center bg-[var(--secondary-gold)] text-black py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-yellow-400 hover:scale-[1.02] transition-all duration-300 shadow-xl"
                 >
                   Learn More
