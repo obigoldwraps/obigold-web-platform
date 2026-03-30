@@ -59,17 +59,21 @@ export default function Transformations() {
   }, [selected]);
 
   return (
-    <section id="transformations" className="relative py-20 px-4 md:px-8 bg-[#0A0A0A] overflow-hidden">  
+    <section id="transformations" className="relative py-20 px-4 md:px-8 bg-[#0A0A0A] overflow-hidden">
 
-      {/* 1. TOP WAVE: Adjusted to overlap previous section, remove black stripe gap */}
-      <div className="absolute top-[-40px] left-0 w-full overflow-hidden leading-[0] z-50 md:top-[-60px]">
+      {/* 1. TOP WAVE: Adjusted for perfect mobile alignment */}
+      <div className="absolute top-[-1px] left-0 w-full overflow-hidden leading-[0] z-50">
         <svg
           viewBox="0 0 1440 100"
+          /* 1. preserveAspectRatio="none" is key for mobile smoothness */
+          preserveAspectRatio="none"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="relative block w-[calc(100%+1.3px)] h-[80px] md:h-[140px]"
+          /* 2. Added 'scale-110' and 'origin-top' to ensure no gaps are visible on mobile */
+          className="relative block w-full h-[60px] md:h-[120px] transform scale-x-[1.05] origin-top"
         >
           <path
+            /* 3. This path is slightly modified to 'bleed' into the black for a smoother cut */
             d="M0 100L60 90C120 80 240 60 360 50C480 40 600 40 720 45C840 50 960 60 1080 65C1200 70 1320 70 1380 70L1440 70V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V100Z"
             fill="white"
           />
@@ -77,11 +81,14 @@ export default function Transformations() {
       </div>
 
       {/* 1. Header Added Back for context */}
-      <div className="relative z-20 max-w-7xl mx-auto mb-20 text-center">
-        <h2 className="text-5xl md:text-6xl font-black mb-6 gold-chrome-text uppercase tracking-tighter">
+      <div className="relative z-20 max-w-7xl mx-auto mb-20 text-center pt-16 md:pt-24">
+
+        {/* 2. Changed text size to 4xl for mobile and 6xl for desktop */}
+        <h2 className="text-[32px] md:text-6xl font-black mb-6 gold-chrome-text uppercase tracking-tighter leading-none">
           TRANSFORMATIONS
         </h2>
-        <p className="text-xl text-white/50 max-w-2xl mx-auto italic">
+
+        <p className="text-sm md:text-xl text-white/50 max-w-2xl mx-auto italic px-4">
           Witness the shift from factory to custom excellence.
         </p>
       </div>

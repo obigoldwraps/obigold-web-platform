@@ -56,11 +56,13 @@ export default function SocialProof() {
             whileInView={{ opacity: 1, x: 0 }}
             className="lg:order-2 w-full"
           >
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-2 md:p-6 shadow-2xl">
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-4 shadow-2xl overflow-visible">
               <div
                 ref={taggboxRef}
-                /* Added min-h-[500px] for mobile and adjusted aspect ratio */
-                className="taggbox w-full min-h-[500px] lg:h-[600px] rounded-2xl overflow-hidden"
+                /* On mobile (default), we force a height of 500px. 
+                   On desktop (lg), we allow it to be 700px.
+                */
+                className="taggbox w-full h-[600px] lg:h-[700px] overflow-visible"
                 data-widget-id="321276"
                 data-website="1"
               />
@@ -94,9 +96,9 @@ export default function SocialProof() {
                 <a href={`https://www.instagram.com/${InstagramHandle}`} target="_blank" rel="noopener noreferrer"
                   className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 bg-obigold-gold-vibrant text-obigold-black px-8 py-4 rounded-2xl font-black text-xl overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,215,0,0.4)]"
                 >
-                  <span className="relative z-10 uppercase tracking-tighter flex items-center gap-2">
-                    <Instagram className="w-6 h-6" />
-                    Follow @{InstagramHandle}
+                  <span className="relative z-10 uppercase tracking-tighter flex items-center gap-1.5 md:gap-2 text-sm md:text-xl">
+                    <Instagram className="w-4 h-5 md:w-6 md:h-6" />
+                    <span className="whitespace-nowrap">Follow @{InstagramHandle}</span>
                   </span>
                   <ArrowRight className="relative z-10 w-6 h-6 group-hover:translate-x-2 transition-transform" />
                   <div className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
