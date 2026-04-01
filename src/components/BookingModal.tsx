@@ -53,7 +53,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
     // Web3Forms Configuration
     submissionData.append("access_key", "9e02630f-5998-4ff2-8485-31e03b4b97da");
     submissionData.append("subject", `New Obigold Quote: ${formData.vehicle}`);
-    submissionData.append("from_name", "Obigold Web Platform");
+    submissionData.append("from_name", "Obigold Wraps Website");
     
     // Adding your Form Data
     submissionData.append("Customer Name", formData.name);

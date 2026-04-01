@@ -53,7 +53,7 @@ export default function Contact() {
                     >
                         <Phone className="w-12 h-12 relative z-10 group-hover:-translate-y-1 transition-transform duration-300" />
                         <div className="text-center relative z-10">
-                            <div className="font-black text-2xl tracking-tight">(555) 123-4567</div>
+                            <div className="font-black text-2xl tracking-tight">+234 813 224 4382</div>
                             <div className="opacity-90 text-sm uppercase tracking-widest font-semibold mt-1">Call Now</div>
                         </div>
                         {/* Moving Shine Effect */}
@@ -89,7 +89,7 @@ export default function Contact() {
                 <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-8 max-w-3xl mx-auto">
                     <p className="text-xl text-black">
                         <span className="font-bold text-2xl">🎁 LIMITED TIME:</span><br />
-                        Book within 48hrs and receive complimentary full-detail prep ($750 value)
+                        Book within 48hrs and receive complimentary full-detail prep (₦50,000 value)
                     </p>
                 </div>
             </div>
