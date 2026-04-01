@@ -48,7 +48,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {/* 1. CALL NOW - The Gold Shining Effect */}
                     <a
-                        href="tel:+15551234567"
+                        href="tel:+2348132244382"
                         className="group relative overflow-hidden bg-obigold-gold-vibrant text-obigold-black px-10 py-8 rounded-2xl font-bold flex flex-col items-center gap-4 hover:scale-105 transition-all duration-500 shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:shadow-[0_0_50px_rgba(255,215,0,0.6)]"
                     >
                         <Phone className="w-12 h-12 relative z-10 group-hover:-translate-y-1 transition-transform duration-300" />

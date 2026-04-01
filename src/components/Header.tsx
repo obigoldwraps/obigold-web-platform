@@ -60,7 +60,7 @@ export default function Header({ openModal }: HeaderProps) {
             <Link to="/#contact" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Contact</Link>
             <div className="border-t border-gray-700 mt-4 pt-4 flex items-center gap-3">
               <button onClick={() => { openModal?.(); setIsOpen(false); }} className="flex-1 bg-[var(--secondary-gold)] text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition-all text-sm">Free Quote</button>
-              <a href="tel:+15551234567" className="text-sm font-medium hover:text-[var(--primary-gold)] transition-all flex items-center gap-2 p-2">
+              <a href="tel:+2348132244382" className="text-sm font-medium hover:text-[var(--primary-gold)] transition-all flex items-center gap-2 p-2">
                 <Phone className="w-4 h-4" />
                 Call
               </a>
