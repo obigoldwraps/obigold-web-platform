@@ -197,7 +197,7 @@ export default function Transformations() {
                   {showAfter ? 'Obigold Wrap' : 'Original Paint'}
                 </motion.div>
 
-                <h3 className="text-2xl md:text-7xl font-black text-white italic tracking-tighter uppercase leading-none drop-shadow-2xl">
+                <h3 className="py-20 text-2xl md:text-7xl font-black text-white italic tracking-tighter uppercase leading-none drop-shadow-2xl">
                   {selected.vehicle}
                 </h3>
               </div>

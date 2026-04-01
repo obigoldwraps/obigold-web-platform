@@ -52,14 +52,14 @@ export default function SocialProof() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="lg:order-2 w-full"
+            className="lg:order-1 w-full"
           >
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-2 md:p-4 shadow-2xl overflow-hidden">
+            <div className="bg-white backdrop-blur-xl border border-white/10 rounded-3xl p-2 md:p-4 shadow-2xl overflow-hidden">
               <div
                 /* Change: Fixed height of 420px on mobile. 
                    This prevents the "long" look you're seeing.
                 */
-                className="w-full h-[1890px] lg:h-[800px] overflow-hidden"
+                className="w-full h-[1200px] lg:h-[800px] overflow-hidden"
                 dangerouslySetInnerHTML={{
                   __html: '<div class="sk-ww-instagram-reels" data-embed-id="25667972"></div>'
                 }}
