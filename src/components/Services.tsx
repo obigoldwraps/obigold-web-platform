@@ -130,7 +130,7 @@ export default function Services({ allServices = false, simpleDesign = false, li
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-3xl bg-black min-h-[550px] flex flex-col justify-end p-8 shadow-2xl transition-all duration-500">
+            <div key={index} className="group relative overflow-hidden rounded-3xl bg-black min-h-[380px] md:min-h-[550px] flex flex-col justify-end p-8 shadow-2xl transition-all duration-500">
 
               {/* Background Image */}
               <img

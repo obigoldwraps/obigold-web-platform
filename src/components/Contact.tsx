@@ -1,7 +1,11 @@
 import React from 'react';
 import { Phone, Calendar, MessageCircle } from 'lucide-react';
 
-export default function Contact() {
+interface ContactProps {
+  openModal?: () => void;
+}
+
+export default function Contact({ openModal }: ContactProps) {
     return (
         <section id="contact" className="relative py-32 px-8 bg-[#E8C547] text-black">
             <div className="absolute top-0 left-0 right-0 leading-[0] -mt-[1px] z-10">
@@ -48,12 +52,12 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                     {/* 1. CALL NOW - The Gold Shining Effect */}
                     <a
-                        href="tel:+15551234567"
+                        href="tel:+2348132244382"
                         className="group relative overflow-hidden bg-obigold-gold-vibrant text-obigold-black px-10 py-8 rounded-2xl font-bold flex flex-col items-center gap-4 hover:scale-105 transition-all duration-500 shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:shadow-[0_0_50px_rgba(255,215,0,0.6)]"
                     >
                         <Phone className="w-12 h-12 relative z-10 group-hover:-translate-y-1 transition-transform duration-300" />
                         <div className="text-center relative z-10">
-                            <div className="font-black text-2xl tracking-tight">(555) 123-4567</div>
+                            <div className="font-black text-2xl tracking-tight">+234 813 224 4382</div>
                             <div className="opacity-90 text-sm uppercase tracking-widest font-semibold mt-1">Call Now</div>
                         </div>
                         {/* Moving Shine Effect */}
@@ -63,7 +67,7 @@ export default function Contact() {
                     {/* 2. BOOK NOW - Remains Premium Dark */}
                     <a
                         href="#"
-                        onClick={(e) => { e.preventDefault(); setIsModalOpen(true); }}
+                        onClick={(e) => { e.preventDefault(); openModal?.(); }}
                         className="group bg-[#0A0A0A] text-white px-10 py-8 rounded-2xl font-bold flex flex-col items-center gap-4 hover:scale-105 transition-all duration-300 border border-white/10 shadow-2xl"
                     >
                         <Calendar className="w-12 h-12 text-obigold-gold-vibrant group-hover:-translate-y-1 transition-transform duration-300" />
@@ -75,7 +79,7 @@ export default function Contact() {
 
                     {/* 3. WHATSAPP - Color Inversion Effect */}
                     <a
-                        href="#"
+                        href="https://wa.me/2348132244832"
                         className="group bg-[#0A0A0A] text-white hover:bg-white hover:text-black px-10 py-8 rounded-2xl font-bold flex flex-col items-center gap-4 hover:scale-105 transition-all duration-500 border border-white/10 shadow-2xl"
                     >
                         <MessageCircle className="w-12 h-12 text-obigold-gold-vibrant group-hover:text-green-600 transition-colors duration-500 group-hover:-translate-y-1 transition-transform" />
@@ -89,7 +93,7 @@ export default function Contact() {
                 <div className="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl p-8 max-w-3xl mx-auto">
                     <p className="text-xl text-black">
                         <span className="font-bold text-2xl">🎁 LIMITED TIME:</span><br />
-                        Book within 48hrs and receive complimentary full-detail prep ($750 value)
+                        Book within 48hrs and receive complimentary full-detail prep (₦50,000 value)
                     </p>
                 </div>
             </div>

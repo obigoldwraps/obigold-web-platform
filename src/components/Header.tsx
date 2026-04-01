@@ -34,7 +34,7 @@ export default function Header({ openModal }: HeaderProps) {
         <div className="hidden lg:flex items-center gap-12">
           <Link to="/services" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Services</Link>
           <Link to="/gallery" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Gallery</Link>
-          <Link to="/#about" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</Link>
+          <Link to="/#social" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</Link>
           <Link to="/#contact" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Contact</Link>
           <div className="flex items-center gap-3">
             <button onClick={openModal} className="bg-[var(--secondary-gold)] text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition-all duration-300 text-sm">
@@ -56,11 +56,11 @@ export default function Header({ openModal }: HeaderProps) {
             ${isServicesPage ? 'bg-black border-white/10' : 'bg-[var(--dark-bg)] backdrop-blur-md border-gray-800'}`}>
             <Link to="/services" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Services</Link>
             <Link to="/gallery" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Gallery</Link>
-            <Link to="/#about" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</Link>
+            <Link to="/#social" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</Link>
             <Link to="/#contact" className="block py-3 text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Contact</Link>
             <div className="border-t border-gray-700 mt-4 pt-4 flex items-center gap-3">
               <button onClick={() => { openModal?.(); setIsOpen(false); }} className="flex-1 bg-[var(--secondary-gold)] text-black px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition-all text-sm">Free Quote</button>
-              <a href="tel:+15551234567" className="text-sm font-medium hover:text-[var(--primary-gold)] transition-all flex items-center gap-2 p-2">
+              <a href="tel:+2348132244382" className="text-sm font-medium hover:text-[var(--primary-gold)] transition-all flex items-center gap-2 p-2">
                 <Phone className="w-4 h-4" />
                 Call
               </a>

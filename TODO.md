@@ -1,19 +1,12 @@
-# Detailed Implementation Steps - Updated Progress
+# Task: Navigation Updates (Minor Changes)
 
-## Step 1: Update src/components/Gallery.tsx ✓
-- [x] Import Link from react-router-dom
-- [x] Load More a → Link to="/gallery"
+## Steps:
+- [x] 1. Update Header.tsx: Change all `to="/#about"` → `to="/#social"`
+- [x] 2. Update Home.tsx: Add openModal prop to Contact component
+- [x] 3. Update Contact.tsx: Add props interface, update WhatsApp href, fix Book Now onClick
+- [x] 4. Update Hero.tsx: Wrap VIEW GALLERY button in Link to="/gallery"
+- [ ] 5. Test: npm run dev, verify all links/modals work
+- [ ] 6. Complete
 
-## Step 2: Update src/components/Header.tsx ✓
-- [x] Added mobile dropdown menu with Links and CTA
+Progress: Edits complete, testing...
 
-## Step 3: Mark original TODO step 8 [x]
-- [ ] 
-
-## Step 4: Test
-- [ ] npm run dev
-- [ ] Verify Home Gallery Load More, Header nav desktop/mobile to /gallery, card click modal
-
-## Step 5: Complete ✓
-
-**All core updates complete. Testing next...**
