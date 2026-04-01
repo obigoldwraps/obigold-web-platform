@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -150,12 +151,14 @@ export default function Hero({ openModal }: HeroProps) {
               <span className="relative z-10">BOOK YOUR WRAP</span>
             </motion.button>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="border-2 border-[var(--secondary-gold)]/50 text-[var(--secondary-gold)] px-10 py-5 rounded-xl font-black text-lg hover:bg-[var(--secondary-gold)] border-[var(--secondary-gold)] hover:text-black transition-all duration-300 tracking-widest"
-            >
-              VIEW GALLERY
-            </motion.button>
+            <Link to="/gallery" className="contents">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="border-2 border-[var(--secondary-gold)]/50 text-[var(--secondary-gold)] px-10 py-5 rounded-xl font-black text-lg hover:bg-[var(--secondary-gold)] border-[var(--secondary-gold)] hover:text-black transition-all duration-300 tracking-widest"
+              >
+                VIEW GALLERY
+              </motion.button>
+            </Link>
           </div>
 
           {/* Stats Grid */}

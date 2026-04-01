@@ -1,7 +1,11 @@
 import React from 'react';
 import { Phone, Calendar, MessageCircle } from 'lucide-react';
 
-export default function Contact() {
+interface ContactProps {
+  openModal?: () => void;
+}
+
+export default function Contact({ openModal }: ContactProps) {
     return (
         <section id="contact" className="relative py-32 px-8 bg-[#E8C547] text-black">
             <div className="absolute top-0 left-0 right-0 leading-[0] -mt-[1px] z-10">
@@ -63,7 +67,7 @@ export default function Contact() {
                     {/* 2. BOOK NOW - Remains Premium Dark */}
                     <a
                         href="#"
-                        onClick={(e) => { e.preventDefault(); setIsModalOpen(true); }}
+                        onClick={(e) => { e.preventDefault(); openModal?.(); }}
                         className="group bg-[#0A0A0A] text-white px-10 py-8 rounded-2xl font-bold flex flex-col items-center gap-4 hover:scale-105 transition-all duration-300 border border-white/10 shadow-2xl"
                     >
                         <Calendar className="w-12 h-12 text-obigold-gold-vibrant group-hover:-translate-y-1 transition-transform duration-300" />
@@ -75,7 +79,7 @@ export default function Contact() {
 
                     {/* 3. WHATSAPP - Color Inversion Effect */}
                     <a
-                        href="#"
+                        href="https://wa.me/2348132244832"
                         className="group bg-[#0A0A0A] text-white hover:bg-white hover:text-black px-10 py-8 rounded-2xl font-bold flex flex-col items-center gap-4 hover:scale-105 transition-all duration-500 border border-white/10 shadow-2xl"
                     >
                         <MessageCircle className="w-12 h-12 text-obigold-gold-vibrant group-hover:text-green-600 transition-colors duration-500 group-hover:-translate-y-1 transition-transform" />
