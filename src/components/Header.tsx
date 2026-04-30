@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, Phone } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import obwraps from '../images/obwraps.png'
 
 interface HeaderProps {
   openModal?: () => void;
@@ -22,19 +23,19 @@ export default function Header({ openModal }: HeaderProps) {
           : 'bg-[var(--dark-bg)]/95 backdrop-blur-md border-gray-800' // Glass look for Home/Gallery
         }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 py-1 flex justify-between items-center">
         <Link to="/" className="flex items-center group">
           <img
-            src="https://assets.ls-assets.com/uploads/ca14b38a-d873-4737-a552-9a5d51f3e276/c156d686-498a-4c0e-8dea-3a3d75278a28.webp?w=768"
+            src={obwraps} 
             alt="OBIGOLD Wraps"
-            className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-10 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
         </Link>
 
         <div className="hidden lg:flex items-center gap-12">
+          <Link to="/" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Home</Link>
           <Link to="/services" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Services</Link>
           <Link to="/gallery" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Gallery</Link>
-          <Link to="/#social" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">About</Link>
           <Link to="/#contact" className="text-sm uppercase tracking-wider font-medium hover:text-[var(--primary-gold)] transition-all duration-300">Contact</Link>
           <div className="flex items-center gap-3">
             <button onClick={openModal} className="bg-[var(--secondary-gold)] text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition-all duration-300 text-sm">

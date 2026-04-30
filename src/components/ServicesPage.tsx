@@ -13,7 +13,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-[var(--dark-bg)]">
       <Header openModal={openQuoteModal} />
-      <Services allServices={true} simpleDesign={true} />
+<Services allServices={true} simpleDesign={true} onBookNow={openQuoteModal} />
       <Footer />
 
       <BookingModal isOpen={quoteModalOpen} onClose={() => setQuoteModalOpen(false)} />

@@ -26,7 +26,7 @@ export default function Hero({ openModal }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen lg:min-h-[140vh] flex flex-col items-center justify-start text-center overflow-hidden pt-20 bg-black"
+      className="relative min-h-screen lg:min-h-[90vh] flex flex-col items-center justify-start text-center overflow-hidden pt-5 bg-black"
     >
       {/* 1. BACKGROUND LAYER: Reduced darkness to observe the car */}
       <div className="absolute inset-0 z-0">

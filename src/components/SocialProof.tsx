@@ -24,7 +24,7 @@ export default function SocialProof() {
   return (
     <section
       id="social"
-      className="relative py-24 md:py-32 px-4 md:px-8 bg-gradient-to-b from-[#818180] from-5% to-[#000000] overflow-hidden"
+      className="relative py-15 md:py-32 px-4 md:px-8 bg-gradient-to-b from-[#818180] from-5% to-[#000000] overflow-hidden"
     >
       {/* Wave Header */}
       <div className="absolute top-0 left-0 right-0 leading-[0] -mt-[1px] z-10">
