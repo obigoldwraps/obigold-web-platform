@@ -2,12 +2,20 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // This snaps the window to the top-left corner
-    window.scrollTo(0, 0);
-  }, [pathname]); // Fires every time the URL path changes
+    if (hash) {
+      // If there's a hash, scroll to the element
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Otherwise, scroll to top
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]); // Fires on path or hash change
 
   return null;
 }
