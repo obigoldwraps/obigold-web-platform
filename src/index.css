@@ -62,6 +62,7 @@
   --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E8C547 50%, #FAD02C 100%);
   --new-gradient-gold: linear-gradient(135deg, #fcca28 0%, #ddb72c 50%, #f5c813 100%);
   --secondary-gold: #E8C547;
+  --tertiary-gold: #ffed25;
 }
 
 * {

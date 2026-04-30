@@ -67,10 +67,10 @@ export default function Services({ allServices = false, simpleDesign = false, li
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
           <div className="text-center mb-16 md:mb-15 group cursor-default">
-            <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tighter uppercase transition-all duration-700">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 text-gray-900 tracking-tighter uppercase transition-all duration-700">
               PREMIUM SERVICES
             </h2>
-            <div className="w-32 h-1 bg-[var(--secondary-gold)] mx-auto mb-12 transition-all duration-700 group-hover:w-48 group-hover:bg-yellow-500"></div>
+            <div className="w-32 h-1 bg-[var(--secondary-gold)] mx-auto mb-8 transition-all duration-700 group-hover:w-48 group-hover:bg-yellow-500"></div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto opacity-80">
               Every vehicle is unique. Our master installers craft bespoke solutions with precision and artistry.
             </p>
@@ -95,7 +95,7 @@ export default function Services({ allServices = false, simpleDesign = false, li
                   />
                 </div>
 
-{/* Text Content */}
+                {/* Text Content */}
                 <div className="space-y-4">
                   <h3 className="text-3xl font-black text-gray-900 italic tracking-tighter uppercase leading-none">
                     {service.title}
@@ -108,9 +108,13 @@ export default function Services({ allServices = false, simpleDesign = false, li
                 {/* Book Now Button */}
                 <button
                   onClick={onBookNow}
-                  className="mt-6 w-full bg-[var(--secondary-gold)] text-black py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-yellow-400 hover:scale-[1.02] transition-all duration-300 shadow-xl"
+                  className="group relative mt-6 w-full bg-[var(--tertiary-gold)] text-black py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-yellow-400 hover:scale-[1.02] transition-all duration-300 shadow-xl overflow-hidden"
                 >
-                  Book Now
+                  {/* The Shine Layer */}
+                  <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
+
+                  {/* Button Text */}
+                  <span className="relative z-10">Book Now</span>
                 </button>
 
               </div>
