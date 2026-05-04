@@ -55,21 +55,22 @@ interface ServicesProps {
   allServices?: boolean;
   simpleDesign?: boolean;
   linkToServices?: boolean;
+  onBookNow?: () => void;
 }
 
-export default function Services({ allServices = false, simpleDesign = false, linkToServices = false }: ServicesProps) {
+export default function Services({ allServices = false, simpleDesign = false, linkToServices = false, onBookNow }: ServicesProps) {
   const services = allServices ? serviceData : serviceData.slice(0, 3);
 
   if (simpleDesign) {
     return (
-      <section id="services" className="py-24 md:py-32 px-4 md:px-8 bg-white text-black overflow-hidden">
+      <section id="services" className="py-20 md:py-30 px-4 md:px-8 bg-white text-black overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* HEADING */}
-          <div className="text-center mb-16 md:mb-24 group cursor-default">
-            <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tighter uppercase transition-all duration-700">
+          <div className="text-center mb-16 md:mb-15 group cursor-default">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 text-gray-900 tracking-tighter uppercase transition-all duration-700">
               PREMIUM SERVICES
             </h2>
-            <div className="w-32 h-1 bg-[var(--secondary-gold)] mx-auto mb-12 transition-all duration-700 group-hover:w-48 group-hover:bg-yellow-500"></div>
+            <div className="w-32 h-1 bg-[var(--secondary-gold)] mx-auto mb-8 transition-all duration-700 group-hover:w-48 group-hover:bg-yellow-500"></div>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto opacity-80">
               Every vehicle is unique. Our master installers craft bespoke solutions with precision and artistry.
             </p>
@@ -104,6 +105,18 @@ export default function Services({ allServices = false, simpleDesign = false, li
                   </p>
                 </div>
 
+                {/* Book Now Button */}
+                <button
+                  onClick={onBookNow}
+                  className="group relative mt-6 w-full bg-[var(--tertiary-gold)] text-black py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-yellow-400 hover:scale-[1.02] transition-all duration-300 shadow-xl overflow-hidden"
+                >
+                  {/* The Shine Layer */}
+                  <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-shine" />
+
+                  {/* Button Text */}
+                  <span className="relative z-10">Book Now</span>
+                </button>
+
               </div>
             ))}
           </div>
@@ -114,11 +127,11 @@ export default function Services({ allServices = false, simpleDesign = false, li
 
   // Original overlay card design for homepage
   return (
-    <section id="services" className="py-32 px-8 bg-white text-black overflow-hidden">
+    <section id="services" className="py-28 px-8 bg-white text-black overflow-hidden">
       <div className="max-w-7xl mx-auto">
 
         {/* HEADING WITH MINIMAL MOTION EFFECT */}
-        <div className="text-center mb-16 md:mb-24 group cursor-default px-4">
+        <div className="text-center mb-16 md:mb-20 group cursor-default px-4">
           <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 tracking-tighter uppercase transition-all duration-700 group-hover:tracking-normal md:group-hover:tracking-[0.05em] group-hover:-translate-y-0.5 break-words">
             PREMIUM SERVICES
           </h2>
@@ -130,7 +143,7 @@ export default function Services({ allServices = false, simpleDesign = false, li
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-3xl bg-black min-h-[550px] flex flex-col justify-end p-8 shadow-2xl transition-all duration-500">
+            <div key={index} className="group relative overflow-hidden rounded-3xl bg-black min-h-[380px] md:min-h-[550px] flex flex-col justify-end p-8 shadow-2xl transition-all duration-500">
 
               {/* Background Image */}
               <img

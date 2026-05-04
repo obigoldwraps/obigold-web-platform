@@ -1,10 +1,4 @@
 import React, { useState } from 'react';
-import { createClient } from '@supabase/supabase-js'; // 1. Import Supabase
-
-// Initialize Supabase Client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_DATABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 interface FormData {
   vehicle: string;
@@ -21,8 +15,8 @@ interface BookingModalProps {
 
 const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
   const [step, setStep] = useState(1);
-  const [loading, setLoading] = useState(false); // 2. Add loading state
-  const [isSuccess, setIsSuccess] = useState(false); // 3. Add success state
+  const [loading, setLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   
   const [formData, setFormData] = useState<FormData>({
     vehicle: '',
@@ -31,62 +25,80 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
     phone: '',
     email: ''
   });
-  const [selectedService, setSelectedService] = useState('Full/Partial Color Change');
 
   if (!isOpen) return null;
 
+  // Helper to update state
   const updateData = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const services = ['Full/Partial Color Change', 'Paint Protection (PPF)', 'Commercial Branding', 'Window & Windscreen Tint'];
+  const services = [
+    'Full/Partial Color Change', 
+    'Paint Protection (PPF)', 
+    'Commercial Branding', 
+    'Window & Windscreen Tint'
+  ];
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
-  // 4. Integrated Supabase Logic
+  // --- Web3Forms Submission Logic ---
   const handleSubmit = async () => {
     setLoading(true);
+
+    // Using the native FormData object required by Web3Forms
+    const submissionData = new window.FormData();
     
-    const { error } = await supabase
-      .from('leads')
-      .insert([
-        { 
-          full_name: formData.name, 
-          email: formData.email,
-          phone: formData.phone,
-          vehicle_info: formData.vehicle,
-          service_requested: formData.service,
-          status: 'pending'
-        }
-      ]);
+    // Web3Forms Configuration
+    submissionData.append("access_key", "9e02630f-5998-4ff2-8485-31e03b4b97da");
+    submissionData.append("subject", `New Obigold Quote: ${formData.vehicle}`);
+    submissionData.append("from_name", "Obigold Wraps Website");
+    
+    // Adding your Form Data
+    submissionData.append("Customer Name", formData.name);
+    submissionData.append("Phone/WhatsApp", formData.phone);
+    submissionData.append("Email", formData.email || "Not Provided");
+    submissionData.append("Vehicle Model", formData.vehicle);
+    submissionData.append("Requested Service", formData.service);
 
-    setLoading(false);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: submissionData
+      });
 
-    if (error) {
-      console.error('Error saving lead:', error.message);
-      alert("Something went wrong. Please try again or call us directly!");
-    } else {
-      setIsSuccess(true);
-      // Reset form after a delay or let user close it
-      setTimeout(() => {
-        onClose();
-        setIsSuccess(false);
-        setStep(1);
-        setFormData({ vehicle: '', service: 'Full/Partial Color Change', name: '', phone: '', email: '' });
-      }, 3000);
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSuccess(true);
+        // Clean up and close after success
+        setTimeout(() => {
+          setIsSuccess(false);
+          setStep(1);
+          setFormData({ vehicle: '', service: 'Full/Partial Color Change', name: '', phone: '', email: '' });
+          onClose();
+        }, 4000);
+      } else {
+        alert("Submission failed. Please try again or message us on WhatsApp.");
+      }
+    } catch (error) {
+      console.error("Web3Forms Error:", error);
+      alert("Network error. Please check your connection.");
+    } finally {
+      setLoading(false);
     }
-  };
-
-  const selectService = (service: string) => {
-    setSelectedService(service);
-    updateData('service', service);
   };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center px-4 overflow-hidden">
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-md" onClick={onClose} />
+      {/* Backdrop */}
+      <div 
+        className="absolute inset-0 bg-black/80 backdrop-blur-md" 
+        onClick={!loading ? onClose : undefined} 
+      />
 
+      {/* Modal Container */}
       <div className="relative bg-obigold-dark border border-obigold-gold/30 w-full max-w-lg rounded-3xl p-8 shadow-[0_0_50px_rgba(212,175,55,0.2)] animate-slide-up">
         
         {isSuccess ? (
@@ -97,18 +109,31 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
             <p className="text-obigold-white/60">We've received your vision. The Obigold team will reach out shortly to discuss your transformation.</p>
           </div>
         ) : (
-          /* FORM STATE */
+          /* FORM STEPS */
           <>
+            {/* Progress Bar */}
             <div className="flex gap-2 mb-8">
               {[1, 2, 3].map((i) => (
-                <div key={i} className={`h-1 flex-1 rounded-full transition-all duration-500 ${step >= i ? 'bg-obigold-gold' : 'bg-obigold-grey'}`} />
+                <div 
+                  key={i} 
+                  className={`h-1 flex-1 rounded-full transition-all duration-500 ${step >= i ? 'bg-obigold-gold' : 'bg-obigold-grey'}`} 
+                />
               ))}
             </div>
 
-            <button onClick={onClose} className="absolute top-6 right-6 text-obigold-white/50 hover:text-obigold-gold transition-colors text-2xl">×</button>
+            {/* Close Button */}
+            {!loading && (
+              <button 
+                onClick={onClose} 
+                className="absolute top-6 right-6 text-obigold-white/50 hover:text-obigold-gold transition-colors text-2xl"
+              >
+                ×
+              </button>
+            )}
 
             <div className="min-h-[300px] flex flex-col justify-between">
               <div>
+                {/* STEP 1: VEHICLE */}
                 {step === 1 && (
                   <div className="animate-fade-in">
                     <h2 className="text-3xl font-black text-obigold-gold mb-2 uppercase italic tracking-tighter">The Vehicle</h2>
@@ -123,6 +148,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                   </div>
                 )}
 
+                {/* STEP 2: SERVICE */}
                 {step === 2 && (
                   <div className="animate-fade-in">
                     <h2 className="text-3xl font-black text-obigold-gold mb-2 uppercase italic tracking-tighter">The Vision</h2>
@@ -131,8 +157,8 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                       {services.map((type) => (
                         <button 
                           key={type} 
-                          onClick={() => selectService(type)}
-                          className={`p-4 border rounded-xl text-left transition-all text-obigold-white border-obigold-grey hover:border-obigold-gold hover:bg-obigold-gold/40 ${selectedService === type ? 'border-obigold-gold bg-obigold-gold/40' : ''}`}
+                          onClick={() => updateData('service', type)}
+                          className={`p-4 border rounded-xl text-left transition-all text-obigold-white border-obigold-grey hover:border-obigold-gold hover:bg-obigold-gold/40 ${formData.service === type ? 'border-obigold-gold bg-obigold-gold/40' : ''}`}
                         >
                           {type}
                         </button>
@@ -141,6 +167,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                   </div>
                 )}
 
+                {/* STEP 3: CONTACT */}
                 {step === 3 && (
                   <div className="animate-fade-in">
                     <h2 className="text-3xl font-black text-obigold-gold mb-2 uppercase italic tracking-tighter">The Connect</h2>
@@ -170,22 +197,23 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                 )}
               </div>
 
+              {/* NAVIGATION BUTTONS */}
               <div className="flex gap-4 mt-8">
                 {step > 1 && (
                   <button 
                     onClick={prevStep} 
-                    className="flex-1 py-4 font-bold text-obigold-white border border-obigold-grey rounded-xl hover:bg-white/5 transition-all"
                     disabled={loading}
+                    className="flex-1 py-4 font-bold text-obigold-white border border-obigold-grey rounded-xl hover:bg-white/5 transition-all disabled:opacity-50"
                   >
                     Back
                   </button>
                 )}
                 <button 
                   onClick={step === 3 ? handleSubmit : nextStep} 
-                  disabled={loading}
-                  className="flex-1 py-4 font-bold text-obigold-black bg-obigold-gold-vibrant rounded-xl hover:shadow-[0_0_30px_rgba(255,215,0,0.4)] transition-all disabled:opacity-50"
+                  disabled={loading || (step === 1 && !formData.vehicle) || (step === 3 && (!formData.name || !formData.phone))}
+                  className="flex-1 py-4 font-bold text-obigold-black bg-obigold-gold-vibrant rounded-xl hover:shadow-[0_0_30px_rgba(255,215,0,0.4)] transition-all disabled:opacity-50 disabled:grayscale"
                 >
-                  {loading ? 'Processing...' : step === 3 ? 'Send Quote Request' : 'Continue'}
+                  {loading ? 'Sending Request...' : step === 3 ? 'Send Quote Request' : 'Continue'}
                 </button>
               </div>
             </div>

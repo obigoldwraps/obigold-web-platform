@@ -49,7 +49,7 @@ export default function Gallery() {
   console.log({ ComponentName: 'Gallery' });
 
   return (
-    <section id="gallery" className="relative py-32 px-4 md:px-8 bg-[#0A0A0A] overflow-hidden">
+    <section id="gallery" className="relative py-15 px-4 md:px-8 bg-[#0A0A0A] overflow-hidden">
       {/* Top Wave Divider */}
       <div className="absolute top-0 left-0 right-0 leading-[0] -mt-[2px] z-10">
         <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto transform scale-y-[1.1] origin-top">

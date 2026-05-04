@@ -22,7 +22,7 @@ export default function Home() {
       <Transformations />
       <SocialProof />
       <Gallery />
-      <Contact />
+      <Contact openModal={() => setIsModalOpen(true)} />
       <Footer />
 
       <BookingModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

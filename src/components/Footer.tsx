@@ -51,11 +51,11 @@ export default function Footer() {
           </div>
           <div className="text-center md:text-right">
             <div className="font-bold text-2xl mb-6">
-              (555) 123-4567
+              +234 813 224 4382
               obigoldwraps@gmail.com
             </div>
             <p className="text-[var(--gray-text)] mb-6">
-              Mon-Fri 9AM-7PM | Sat 10AM-5PM
+              Mon-Fri 9AM-6PM | Sat 10AM-5PM
             </p>
             <div className="space-y-3">
               <p className="text-[var(--gray-text)] text-sm">100% Satisfaction Guaranteed</p>
