@@ -71,12 +71,12 @@ const transformations = [
     img: lexGrey,
   },
   {
-    vehicle: 'Mercedes GLE',
+    vehicle: 'Mercedes GLE 53 AMG',
     wrap: 'Gloss Black',
     img: gleBlack,
   },
   {
-    vehicle: 'Universal',
+    vehicle: 'Mercedes GLE 450',
     wrap: 'Ceramic Coating',
     img: ceramic,
   },
