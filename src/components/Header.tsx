@@ -17,7 +17,7 @@ export default function Header({ openModal }: HeaderProps) {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-colors duration-300 border-b 
+      className={`fixed top-0 w-full z-50 transition-colors duration-300 border-transparent 
         ${isServicesPage
           ? 'bg-black border-white/10' // Solid black for Services
           : 'bg-[var(--dark-bg)]/95 backdrop-blur-md border-gray-800' // Glass look for Home/Gallery
