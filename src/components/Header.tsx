@@ -20,7 +20,7 @@ export default function Header({ openModal }: HeaderProps) {
       className={`fixed top-0 w-full z-50 transition-colors duration-300 border-b 
         ${isServicesPage
           ? 'bg-black border-white/10' // Solid black for Services
-          : 'bg-[var(--dark-bg)]/95 backdrop-blur-md border-gray-800' // Glass look for Home/Gallery
+          : 'bg-black/30 backdrop-blur-md border-transparent' // Glass look for Home/Gallery
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-1 flex justify-between items-center">
