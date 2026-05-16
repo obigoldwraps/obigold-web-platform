@@ -49,21 +49,14 @@ export default function Gallery() {
   console.log({ ComponentName: 'Gallery' });
 
   return (
-    <section id="gallery" className="relative py-15 px-4 md:px-8 bg-[#0A0A0A] overflow-hidden">
-      {/* Top Wave Divider */}
-      <div className="absolute top-0 left-0 right-0 leading-[0] -mt-[2px] z-10">
-        <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto transform scale-y-[1.1] origin-top">
-          <path d="M0 100L60 90C120 80 240 60 360 50C480 40 600 40 720 45C840 50 960 60 1080 65C1200 70 1320 70 1380 70L1440 70V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V100Z" fill="#0A0A0A" />
-        </svg>
-      </div>
-
+    <section id="gallery" className="relative pt-12 pb-15  px-4 md:px-8 bg-gradient-to-b from-white via-white to-#0A0A0A overflow-hidden">
       <div className="relative z-20 max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 newgold-gradient uppercase tracking-tighter">
+          <h2 className="text-5xl md:text-6xl font-black mb-6 text-black uppercase tracking-tighter">
             FULL GALLERY
           </h2>
-          <p className="text-xl text-white/50 max-w-2xl mx-auto">
-            Infinite scroll ready. Hover to play WebM loops (perf optimized).
+          <p className="text-xl text-black/60 max-w-2xl mx-auto">
+            Here are just a few examples:
           </p>
         </div>
 

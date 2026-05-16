@@ -178,7 +178,7 @@ export default function Services({ allServices = false, simpleDesign = false, li
 
                 {/* Button */}
                 <a
-                  href={linkToServices ? "/services" : "#"}
+                  href="/services"
                   className="inline-block w-full text-center bg-[var(--secondary-gold)] text-black py-4 rounded-xl font-black uppercase tracking-widest text-sm hover:bg-yellow-400 hover:scale-[1.02] transition-all duration-300 shadow-xl"
                 >
                   Learn More

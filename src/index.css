@@ -7,6 +7,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 @media (max-width: 768px) {
 
   #social .taggbox-socialwall-list,
@@ -125,12 +126,24 @@ h6 {
   background-clip: text;
   display: inline-block;
   filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.3));
-  transition: filter 0.5s ease, transform 0.5s ease;
+  transition: all 0.5s ease-in-out;
+  animation: auto-shine 3s ease-in-out infinite;
 }
 
-.gold-chrome-text:hover {
-  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7)) brightness(1.2);
-  transform: skewX(-2deg);
+@keyframes auto-shine {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0px rgba(255, 215, 0, 0)) brightness(1);
+    transform: skewX(0deg);
+  }
+
+  45%,
+  55% {
+    /* Your exact hover styles peaked in the middle of the cycle */
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7)) brightness(1.2);
+    transform: skewX(-2deg);
+  }
 }
 
 .card-hover {
