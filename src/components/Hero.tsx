@@ -43,8 +43,6 @@ export default function Hero({ openModal }: HeroProps) {
       {/* Radial spotlight: Bright center, dark edges */}
       <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(circle,transparent_20%,rgba(0,0,0,0.8)_100%)]" />
       
-      {/* Side gradients for text readability on wide screens */}
-      <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-black/60 via-transparent to-black/60" />
       
       {/* Bottom fade to blend into the next section */}
       <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black" />
@@ -74,7 +72,7 @@ export default function Hero({ openModal }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-sm md:text-lg text-white/70 mt-6 max-w-lg mx-auto"
+            className="text-sm md:text-lg text-white mt-6 max-w-lg mx-auto"
           >
             Premium car wraps and custom finishes that turn your vehicle into a head-turning statement of luxury.
           </motion.p>

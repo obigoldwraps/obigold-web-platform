@@ -33,19 +33,19 @@ export default function Footer() {
             <div>
               <h5 className="font-bold text-white mb-4 uppercase tracking-wider">Services</h5>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-[var(--primary-gold)] transition-all duration-300">Color Change</a></li>
-                <li><a href="#" className="hover:text-[var(--primary-gold)] transition-all duration-300">Paint Protection Film</a></li>
-                <li><a href="#" className="hover:text-[var(--primary-gold)] transition-all duration-300">Ceramic Coating</a></li>
-                <li><a href="#" className="hover:text-[var(--primary-gold)] transition-all duration-300">Chrome Delete</a></li>
+                <li><a href="/services" className="hover:text-[var(--primary-gold)] transition-all duration-300">Color Change</a></li>
+                <li><a href="/services" className="hover:text-[var(--primary-gold)] transition-all duration-300">Paint Protection Film</a></li>
+                <li><a href="/services" className="hover:text-[var(--primary-gold)] transition-all duration-300">Ceramic Coating</a></li>
+                <li><a href="/services" className="hover:text-[var(--primary-gold)] transition-all duration-300">Chrome Delete</a></li>
               </ul>
             </div>
             <div>
               <h5 className="font-bold text-white mb-4 uppercase tracking-wider">Company</h5>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-[var(--primary-gold)] transition-all duration-300">About Us</a></li>
-                <li><a href="#" className="hover:text-[var(--primary-gold)] transition-all duration-300">Gallery</a></li>
-                <li><a href="#" className="hover:text-[var(--primary-gold)] transition-all duration-300">Process</a></li>
-                <li><a href="#" className="hover:text-[var(--primary-gold)] transition-all duration-300">Contact</a></li>
+                <li><a href="#social" className="hover:text-[var(--primary-gold)] transition-all duration-300">About Us</a></li>
+                <li><a href="/gallery" className="hover:text-[var(--primary-gold)] transition-all duration-300">Gallery</a></li>
+                <li><a href="/services" className="hover:text-[var(--primary-gold)] transition-all duration-300">Process</a></li>
+                <li><a href="/#contact" className="hover:text-[var(--primary-gold)] transition-all duration-300">Contact</a></li>
               </ul>
             </div>
           </div>
