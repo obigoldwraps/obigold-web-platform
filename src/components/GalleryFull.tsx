@@ -5,16 +5,16 @@ import GalleryModal from './GalleryModal';
 
 import dodge from '../images/dodge.png';
 import c45tint from '../images/c450tint1.png';
-import gle63satin from '../images/gle63satin.png';
+import gle63satin from '../images/gle63satin.webp';
 import rx350blue from '../images/rx350blue.png';
-import camarogreen from '../images/camarogreen.png';
+import camarogreen from '../images/camarogreen.webp';
 import brabus from '../images/brabus.png';
 // Extra 6
 import gle63purple from '../images/gle63_purple.png';
 import gle63white from '../images/gle63_white.png';
-import camaroBlack from '../images/camaroblack.png';
+import camaroBlack from '../images/camaroblack.webp';
 import lexGrey from '../images/lexgrey.png';
-import gleBlack from '../images/gleblack.png';
+import gleBlack from '../images/gleblack.webp';
 import ceramic from '../images/ceramic.png';
 
 const transformations = [

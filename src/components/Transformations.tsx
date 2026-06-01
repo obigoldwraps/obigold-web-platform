@@ -5,12 +5,12 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // Images (Ensure these paths are correct in your /src folder)
-import gle63satin from '../images/gle63satin.png';
-import gleblack from '../images/gleblack.png';
+import gle63satin from '../images/gle63satin.webp';
+import gleblack from '../images/gleblack.webp';
 import rx350blue from '../images/rx350blue.png';
 import lexgrey from '../images/lexgrey.png';
-import camarogreen from '../images/camarogreen.png';
-import camaroblack from '../images/camaroblack.png';
+import camarogreen from '../images/camarogreen.webp';
+import camaroblack from '../images/camaroblack.webp';
 
 const transformations = [
   {

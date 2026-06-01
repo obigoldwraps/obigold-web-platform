@@ -3,7 +3,10 @@ import { ChevronDown, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Assets
-import backgroundimg from '../images/backgroundhero.jpg';
+import camaroblack from '../images/camaroblack.webp';
+import camarogreen from '../images/camarogreen.webp';
+import gleblack from '../images/gleblack.webp';
+import gle63satin from '../images/gle63satin.webp';
 import gle63white from '../images/gle63_white.png';
 import gle63purple from '../images/gle63_purple.png';
 
@@ -11,14 +14,25 @@ interface HeroProps {
   openModal?: () => void;
 }
 
+const bgPairs = [
+  [
+    { src: camaroblack, alt: 'Obigold black Camaro background' },
+    { src: gleblack, alt: 'Obigold black GLE background' }
+  ],
+  [
+    { src: camarogreen, alt: 'Obigold green Camaro background' },
+    { src: gle63satin, alt: 'Obigold satin GLE background' }
+  ]
+];
+
 export default function Hero({ openModal }: HeroProps) {
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Auto-slide logic: toggles every 4 seconds
+  // Auto-slide logic: toggles every 8 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev === 0 ? 1 : 0));
-    }, 4000);
+    }, 8000);
     return () => clearInterval(timer);
   }, []);
 
@@ -27,30 +41,42 @@ export default function Hero({ openModal }: HeroProps) {
       id="home"
       className="relative min-h-screen lg:min-h-[140vh] flex flex-col items-center justify-start text-center overflow-hidden pt-20 bg-black"
     >
-      {/* 1. BACKGROUND LAYER: Reduced darkness to observe the car */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={backgroundimg}
-          alt="Premium Car Wrap"
-          className="w-full h-full object-cover scale-105"
-        />
+      {/* 1. BACKGROUND LAYER: Two-image pair that alternates every 8 seconds */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImage}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.0 }}
+            className="w-full h-full grid grid-cols-1 sm:grid-cols-2 gap-0 sm:gap-1 md:gap-2"
+            style={{ willChange: 'opacity' }}
+          >
+            {bgPairs[currentImage].map((image, index) => (
+              <div key={index} className="relative overflow-hidden h-full">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover"
+                  loading={currentImage === 0 && index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+              </div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
         {/* Subtle Base Tint */}
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      {/* 2. DYNAMIC VIGNETTES: Creates the 'Luxury Spotlight' effect */}
-      {/* Radial spotlight: Bright center, dark edges */}
-      <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(circle,transparent_20%,rgba(0,0,0,0.8)_100%)]" />
-      
-      {/* Side gradients for text readability on wide screens */}
-      <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-black/60 via-transparent to-black/60" />
-      
       {/* Bottom fade to blend into the next section */}
       <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black" />
 
       {/* 3. MAIN CONTENT WRAPPER: Highest Z-index */}
       <div className="relative z-30 w-full flex flex-col items-center">
-        
+
         {/* Hero Text: Minimized slightly to create visual space */}
         <div className="mt-10 md:mt-16 max-w-4xl mx-auto px-6 pointer-events-none">
           <motion.h1
@@ -73,7 +99,7 @@ export default function Hero({ openModal }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-sm md:text-lg text-white/70 mt-6 max-w-lg mx-auto"
+            className="text-sm md:text-lg text-white/80 mt-6 max-w-lg mx-auto"
           >
             Premium car wraps and custom finishes that turn your vehicle into a head-turning statement of luxury.
           </motion.p>
@@ -82,7 +108,7 @@ export default function Hero({ openModal }: HeroProps) {
         {/* The Slideshow Container: Before & After Visual */}
         <div className="relative w-full max-w-5xl mx-auto px-4 md:px-6 mt-12">
           <div className="relative aspect-[21/9] w-full rounded-3xl overflow-hidden ring-1 ring-white/10 bg-neutral-900 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            
+
             {/* Base Image (Before) */}
             <img
               src={gle63white}

@@ -54,7 +54,7 @@ export default function SocialProof() {
             whileInView={{ opacity: 1, x: 0 }}
             className="lg:order-2 w-full"
           >
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-2 md:p-4 shadow-2xl overflow-hidden">
+            <div className="bg-white backdrop-blur-xl border border-white/10 rounded-3xl p-2 md:p-4 shadow-2xl overflow-hidden">
               <div
                 /* Change: Fixed height of 420px on mobile. 
                    This prevents the "long" look you're seeing.

@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import dodge from '../images/dodge.png';
 import c45tint from '../images/c450tint1.png';
-import gle63satin from '../images/gle63satin.png';
+import gle63satin from '../images/gle63satin.webp';
 import rx350blue from '../images/rx350blue.png';
-import camarogreen from '../images/camarogreen.png';
+import camarogreen from '../images/camarogreen.webp';
 import brabus from '../images/brabus.png';
 
 
